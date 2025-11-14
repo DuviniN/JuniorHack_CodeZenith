@@ -12,7 +12,7 @@ const Footer = () => {
                 NA
               </div>
               <div>
-                <p className="text-white font-semibold">Nutrition Advisor</p>
+                <p className="text-white font-semibold">NutriLanka</p>
                 <p className="text-xs text-slate-400">Sri Lankan Diets</p>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-slate-700 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-400">
-            © {new Date().getFullYear()} Nutrition Advisor. All rights reserved.
+            © {new Date().getFullYear()} NutriLanka. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <span className="text-sm text-slate-400">Made with ❤️ for Sri Lanka</span>

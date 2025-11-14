@@ -46,8 +46,7 @@ const Profile = () => {
 
     try {
       const payload = {
-        name: form.name,
-        email: form.email,
+        // Name and email are not included - they cannot be changed
         onboarding: {
           age: Number(form.age),
           weightKg: Number(form.weightKg),
@@ -125,11 +124,11 @@ const Profile = () => {
                   type="text"
                   name="name"
                   value={form.name}
-                  onChange={handleChange}
-                  disabled={!isEditing}
-                  className="w-full rounded-xl border border-slate-200 px-3 py-2 disabled:bg-slate-50 disabled:text-slate-500"
-                  required
+                  disabled={true}
+                  className="w-full rounded-xl border border-slate-200 px-3 py-2 bg-slate-50 text-slate-500 cursor-not-allowed"
+                  readOnly
                 />
+                <p className="text-xs text-slate-400 mt-1">Name cannot be changed</p>
               </div>
               <div>
                 <label className="text-sm text-slate-600 mb-1 block">Email</label>
@@ -137,11 +136,11 @@ const Profile = () => {
                   type="email"
                   name="email"
                   value={form.email}
-                  onChange={handleChange}
-                  disabled={!isEditing}
-                  className="w-full rounded-xl border border-slate-200 px-3 py-2 disabled:bg-slate-50 disabled:text-slate-500"
-                  required
+                  disabled={true}
+                  className="w-full rounded-xl border border-slate-200 px-3 py-2 bg-slate-50 text-slate-500 cursor-not-allowed"
+                  readOnly
                 />
+                <p className="text-xs text-slate-400 mt-1">Email cannot be changed</p>
               </div>
             </div>
           </section>
