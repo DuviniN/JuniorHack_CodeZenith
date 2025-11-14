@@ -13,6 +13,8 @@ const AdminDashboard = () => {
     const [editingAdvisor, setEditingAdvisor] = useState(null);
     const [users, setUsers] = useState([]);
     const [appointments, setAppointments] = useState([]);
+    const [shops, setShops] = useState([]);
+    const [editingShop, setEditingShop] = useState(null);
     const [pendingFoodsSearch, setPendingFoodsSearch] = useState('');
     const [approvedFoodsSearch, setApprovedFoodsSearch] = useState('');
     const [form, setForm] = useState({
@@ -45,6 +47,26 @@ const AdminDashboard = () => {
         name: '',
         email: '',
         password: ''
+    });
+    const [shopForm, setShopForm] = useState({
+        name: '',
+        city: '',
+        websiteUrl: '',
+        mapUrl: '',
+        specialties: '',
+        description: '',
+        phone: '',
+        email: ''
+    });
+    const [editShopForm, setEditShopForm] = useState({
+        name: '',
+        city: '',
+        websiteUrl: '',
+        mapUrl: '',
+        specialties: '',
+        description: '',
+        phone: '',
+        email: ''
     });
 
     const loadData = async () => {
@@ -93,6 +115,16 @@ const AdminDashboard = () => {
         }
     };
 
+    const loadShops = async () => {
+        try {
+            const res = await api.get('/admin/shops');
+            setShops(res.data.shops);
+        } catch (error) {
+            console.error(error);
+            alert('Failed to load shops');
+        }
+    };
+
     const loadAppointments = async () => {
         try {
             const res = await api.get('/admin/appointments');
@@ -126,6 +158,83 @@ const AdminDashboard = () => {
         }
     };
 
+    const handleShopSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await api.post('/admin/shops', {
+                ...shopForm,
+                specialties: shopForm.specialties ? shopForm.specialties.split(',').map((item) => item.trim()) : []
+            });
+            setShopForm({
+                name: '',
+                city: '',
+                websiteUrl: '',
+                mapUrl: '',
+                specialties: '',
+                description: '',
+                phone: '',
+                email: ''
+            });
+            alert('Shop created successfully!');
+            loadShops();
+            setActiveTab('manageShops');
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to create shop');
+        }
+    };
+
+    const handleEditShop = (shop) => {
+        setEditingShop(shop._id);
+        setEditShopForm({
+            name: shop.name || '',
+            city: shop.city || '',
+            websiteUrl: shop.websiteUrl || '',
+            mapUrl: shop.mapUrl || '',
+            specialties: Array.isArray(shop.specialties) ? shop.specialties.join(', ') : shop.specialties || '',
+            description: shop.description || '',
+            phone: shop.phone || '',
+            email: shop.email || ''
+        });
+    };
+
+    const handleUpdateShop = async (e) => {
+        e.preventDefault();
+        try {
+            await api.put(`/admin/shops/${editingShop}`, {
+                ...editShopForm,
+                specialties: editShopForm.specialties ? editShopForm.specialties.split(',').map((item) => item.trim()) : []
+            });
+            setEditingShop(null);
+            setEditShopForm({
+                name: '',
+                city: '',
+                websiteUrl: '',
+                mapUrl: '',
+                specialties: '',
+                description: '',
+                phone: '',
+                email: ''
+            });
+            alert('Shop updated successfully!');
+            loadShops();
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to update shop');
+        }
+    };
+
+    const handleDeleteShop = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this shop?')) {
+            return;
+        }
+        try {
+            await api.delete(`/admin/shops/${id}`);
+            alert('Shop deleted successfully!');
+            loadShops();
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to delete shop');
+        }
+    };
+
     const filteredPendingFoods = pendingFoods.filter((food) =>
         food.name.toLowerCase().includes(pendingFoodsSearch.toLowerCase()) ||
         (food.description && food.description.toLowerCase().includes(pendingFoodsSearch.toLowerCase())) ||
@@ -156,6 +265,9 @@ const AdminDashboard = () => {
         }
         if (activeTab === 'manageUsers') {
             loadUsers();
+        }
+        if (activeTab === 'shop' || activeTab === 'manageShops') {
+            loadShops();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTab]);
@@ -296,7 +408,9 @@ const AdminDashboard = () => {
         { id: 'manageAdmins', label: 'Manage Admins' },
         { id: 'advisor', label: 'Add Advisor' },
         { id: 'manageAdvisors', label: 'Manage Advisors' },
-        { id: 'manageUsers', label: 'Manage Users' }
+        { id: 'manageUsers', label: 'Manage Users' },
+        { id: 'shop', label: 'Add Shop' },
+        { id: 'manageShops', label: 'Manage Shops' }
     ];
 
     return (
@@ -915,6 +1029,303 @@ const AdminDashboard = () => {
                             ))}
                             {!users.filter((user) => user.role !== 'admin').length && (
                                 <p className="text-slate-500 text-sm text-center py-8">No users found</p>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'shop' && (
+                    <form className="space-y-4 max-w-md" onSubmit={handleShopSubmit}>
+                        <div>
+                            <h3 className="text-lg font-semibold text-slate-800 mb-1">Add shop</h3>
+                            <p className="text-xs text-slate-500">Create a new shop profile.</p>
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Shop Name *</label>
+                            <input
+                                type="text"
+                                value={shopForm.name}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, name: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                required
+                                placeholder="Enter shop name"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">City *</label>
+                            <input
+                                type="text"
+                                value={shopForm.city}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, city: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                required
+                                placeholder="Enter city"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Website URL *</label>
+                            <input
+                                type="url"
+                                value={shopForm.websiteUrl}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, websiteUrl: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                required
+                                placeholder="https://example.com"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Map URL (Optional)</label>
+                            <input
+                                type="url"
+                                value={shopForm.mapUrl}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, mapUrl: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="https://maps.app.goo.gl/..."
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Specialties (Comma separated)</label>
+                            <input
+                                type="text"
+                                value={shopForm.specialties}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, specialties: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="e.g., organic produce, healthy groceries"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Description (Optional)</label>
+                            <textarea
+                                value={shopForm.description}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, description: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                rows="3"
+                                placeholder="Enter shop description..."
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Phone (Optional)</label>
+                            <input
+                                type="tel"
+                                value={shopForm.phone}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, phone: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="Enter phone number"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Email (Optional)</label>
+                            <input
+                                type="email"
+                                value={shopForm.email}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, email: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="Enter email"
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            className="w-full bg-brand-primary text-white py-3 rounded-xl font-semibold hover:bg-brand-dark transition"
+                        >
+                            Save shop
+                        </button>
+                    </form>
+                )}
+
+                {activeTab === 'manageShops' && (
+                    <div>
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-semibold text-slate-800">All Shops</h3>
+                            <button
+                                className="text-sm text-brand-dark hover:text-brand-primary"
+                                type="button"
+                                onClick={loadShops}
+                            >
+                                Refresh
+                            </button>
+                        </div>
+                        <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                            {shops.map((shop) => (
+                                <div key={shop._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
+                                    {editingShop === shop._id ? (
+                                        <form onSubmit={handleUpdateShop} className="space-y-3">
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Shop Name</label>
+                                                <input
+                                                    type="text"
+                                                    value={editShopForm.name}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, name: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">City</label>
+                                                <input
+                                                    type="text"
+                                                    value={editShopForm.city}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, city: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Website URL</label>
+                                                <input
+                                                    type="url"
+                                                    value={editShopForm.websiteUrl}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, websiteUrl: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Map URL</label>
+                                                <input
+                                                    type="url"
+                                                    value={editShopForm.mapUrl}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, mapUrl: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Specialties (Comma separated)</label>
+                                                <input
+                                                    type="text"
+                                                    value={editShopForm.specialties}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, specialties: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Description</label>
+                                                <textarea
+                                                    value={editShopForm.description}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, description: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    rows="2"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Phone</label>
+                                                <input
+                                                    type="tel"
+                                                    value={editShopForm.phone}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, phone: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Email</label>
+                                                <input
+                                                    type="email"
+                                                    value={editShopForm.email}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, email: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <button
+                                                    type="submit"
+                                                    className="px-4 py-2 rounded-full bg-brand-primary text-white text-sm font-semibold hover:bg-brand-dark transition"
+                                                >
+                                                    Save
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setEditingShop(null);
+                                                        setEditShopForm({
+                                                            name: '',
+                                                            city: '',
+                                                            websiteUrl: '',
+                                                            mapUrl: '',
+                                                            specialties: '',
+                                                            description: '',
+                                                            phone: '',
+                                                            email: ''
+                                                        });
+                                                    }}
+                                                    className="px-4 py-2 rounded-full border border-slate-300 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition"
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </form>
+                                    ) : (
+                                        <div className="flex items-start justify-between">
+                                            <div className="flex-1">
+                                                <p className="font-semibold text-slate-800">{shop.name}</p>
+                                                <p className="text-sm text-slate-500 mt-1">{shop.city}</p>
+                                                <a
+                                                    href={shop.websiteUrl}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="text-xs text-brand-primary hover:underline mt-1 block"
+                                                >
+                                                    {shop.websiteUrl}
+                                                </a>
+                                                {shop.mapUrl && (
+                                                    <a
+                                                        href={shop.mapUrl}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="text-xs text-slate-500 hover:text-brand-primary mt-1 block"
+                                                    >
+                                                        View on map
+                                                    </a>
+                                                )}
+                                                {shop.specialties && shop.specialties.length > 0 && (
+                                                    <div className="flex flex-wrap gap-1 mt-2">
+                                                        {Array.isArray(shop.specialties) ? (
+                                                            shop.specialties.map((specialty, idx) => (
+                                                                <span
+                                                                    key={idx}
+                                                                    className="px-2 py-0.5 text-xs rounded-full bg-green-50 text-green-700"
+                                                                >
+                                                                    {specialty}
+                                                                </span>
+                                                            ))
+                                                        ) : (
+                                                            <span className="px-2 py-0.5 text-xs rounded-full bg-green-50 text-green-700">
+                                                                {shop.specialties}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                )}
+                                                {shop.description && (
+                                                    <p className="text-xs text-slate-500 mt-2">{shop.description}</p>
+                                                )}
+                                                {(shop.phone || shop.email) && (
+                                                    <div className="text-xs text-slate-400 mt-2">
+                                                        {shop.phone && <p>Phone: {shop.phone}</p>}
+                                                        {shop.email && <p>Email: {shop.email}</p>}
+                                                    </div>
+                                                )}
+                                                <p className="text-xs text-slate-400 mt-2">
+                                                    Created: {new Date(shop.createdAt).toLocaleDateString()}
+                                                </p>
+                                            </div>
+                                            <div className="flex gap-2 ml-4">
+                                                <button
+                                                    onClick={() => handleEditShop(shop)}
+                                                    className="px-4 py-2 rounded-full border border-brand-primary text-brand-primary text-sm font-semibold hover:bg-brand-primary hover:text-white transition"
+                                                >
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDeleteShop(shop._id)}
+                                                    className="px-4 py-2 rounded-full bg-red-500 text-white text-sm font-semibold hover:bg-red-600 transition"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                            {!shops.length && (
+                                <p className="text-slate-500 text-sm text-center py-8">No shops found</p>
                             )}
                         </div>
                     </div>

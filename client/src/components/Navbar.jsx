@@ -34,6 +34,7 @@ const Navbar = () => {
         { to: '/dashboard', label: 'Dashboard' },
         { to: '/foods', label: 'Foods' },
         { to: '/meals', label: 'Meals' },
+        { to: '/meal-plans', label: 'Meal Plans' },
         { to: '/advisors', label: 'Advisors' },
         { to: '/shops', label: 'Shops' },
         { to: '/profile', label: 'Profile' }

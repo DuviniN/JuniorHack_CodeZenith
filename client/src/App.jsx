@@ -12,6 +12,7 @@ import Profile from './pages/Profile.jsx';
 import Foods from './pages/Foods.jsx';
 import FoodDetail from './pages/FoodDetail.jsx';
 import Meals from './pages/Meals.jsx';
+import MealPlans from './pages/MealPlans.jsx';
 import AdvisorDirectory from './pages/AdvisorDirectory.jsx';
 import Shops from './pages/Shops.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
@@ -90,6 +91,14 @@ function App() {
             element={
               <ProtectedRoute userOnly>
                 <Meals />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/meal-plans"
+            element={
+              <ProtectedRoute userOnly>
+                <MealPlans />
               </ProtectedRoute>
             }
           />
