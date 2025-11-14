@@ -7,6 +7,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import foodRoutes from './routes/foodRoutes.js';
 import mealRoutes from './routes/mealRoutes.js';
+import mealPlanRoutes from './routes/mealPlanRoutes.js';
 import advisorRoutes from './routes/advisorRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
@@ -35,6 +36,7 @@ app.get('/api/health', (_, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/foods', foodRoutes);
 app.use('/api/meals', mealRoutes);
+app.use('/api/meal-plans', mealPlanRoutes);
 app.use('/api/advisors', advisorRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/admin', adminRoutes);

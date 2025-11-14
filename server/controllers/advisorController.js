@@ -1,5 +1,6 @@
 import Advisor from '../models/Advisor.js';
 import Appointment from '../models/Appointment.js';
+import Shop from '../models/Shop.js';
 
 const fallbackAdvisors = [
   {
@@ -90,30 +91,11 @@ export const getAppointment = async (req, res) => {
 };
 
 export const listHealthyShops = async (_req, res) => {
-  res.json({
-    shops: [
-      {
-        name: 'Good Market',
-        city: 'Colombo',
-        websiteUrl: 'https://www.goodmarket.global/info/srilanka/',
-        mapUrl: 'https://maps.app.goo.gl/qXtJGe8k4V6oA2jD9',
-        specialties: ['organic produce', 'marketplace events', 'organic PGS', 'healthy groceries']
-      },
-      {
-        name: 'Haritha Foods',
-        city: 'Hyderabad, India',
-        websiteUrl: 'https://harithafoods.in/',
-        mapUrl: 'https://maps.app.goo.gl/q4EoH1o9kG7fi1Gq6',
-        specialties: ['millet staples', 'ready to cook', 'healthy spice mixes', 'millet flours']
-      },
-      {
-        name: 'Saviru Spices Naturals',
-        city: 'Matale',
-        websiteUrl: 'https://bizconnect.idb.gov.lk/listing/matale/food-and-beverages,spice-related-industries/saviru-spices-naturals-pvt-ltd/',
-        mapUrl: 'https://maps.app.goo.gl/c2KmZVbNUsngmKzF9',
-        specialties: ['spices & condiments', 'dehydrated foods', 'processed foods', 'herbal products']
-      }
-    ]
-  });
+  try {
+    const shops = await Shop.find().sort({ createdAt: -1 });
+    res.json({ shops });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
