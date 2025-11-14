@@ -35,7 +35,7 @@ const Dashboard = () => {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                     <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
                     
-                    <div className="relative z-10">
+                    <div className="relative z-0">
                         <div className="flex items-center gap-2 mb-4">
                             <div className="h-12 w-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center font-bold text-xl">
                                 NL

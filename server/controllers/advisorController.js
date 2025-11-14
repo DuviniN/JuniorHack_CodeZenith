@@ -93,22 +93,25 @@ export const listHealthyShops = async (_req, res) => {
   res.json({
     shops: [
       {
-        name: 'Good Market Colombo',
-        city: 'Colombo 07',
+        name: 'Good Market',
+        city: 'Colombo',
+        websiteUrl: 'https://www.goodmarket.global/info/srilanka/',
         mapUrl: 'https://maps.app.goo.gl/qXtJGe8k4V6oA2jD9',
-        specialties: ['organic veg', 'kombucha', 'gluten free string hoppers']
+        specialties: ['organic produce', 'marketplace events', 'organic PGS', 'healthy groceries']
       },
       {
-        name: 'Haritha Hela Foods',
-        city: 'Kandy',
+        name: 'Haritha Foods',
+        city: 'Hyderabad, India',
+        websiteUrl: 'https://harithafoods.in/',
         mapUrl: 'https://maps.app.goo.gl/q4EoH1o9kG7fi1Gq6',
-        specialties: ['traditional rice', 'kithul treacle', 'herbal powders']
+        specialties: ['millet staples', 'ready to cook', 'healthy spice mixes', 'millet flours']
       },
       {
-        name: 'Saviru Superfoods',
-        city: 'Galle',
+        name: 'Saviru Spices Naturals',
+        city: 'Matale',
+        websiteUrl: 'https://bizconnect.idb.gov.lk/listing/matale/food-and-beverages,spice-related-industries/saviru-spices-naturals-pvt-ltd/',
         mapUrl: 'https://maps.app.goo.gl/c2KmZVbNUsngmKzF9',
-        specialties: ['moringa snacks', 'jack chips', 'ready-to-eat kola kenda']
+        specialties: ['spices & condiments', 'dehydrated foods', 'processed foods', 'herbal products']
       }
     ]
   });
