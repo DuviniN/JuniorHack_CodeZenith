@@ -1,0 +1,2642 @@
+[
+  {
+    "name": "Red Samba Rice & Parippu",
+    "description": "Red Samba Rice & Parippu is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 320,
+    "calories": 520,
+    "protein": 18,
+    "carbs": 78,
+    "fat": 12,
+    "sugar": 14.0,
+    "fiber": 9.4,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve Red Samba Rice & Parippu with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Red Samba Rice & Parippu with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Red Samba Rice & Parippu for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Kiribath with Lunu Miris",
+    "description": "Kiribath with Lunu Miris is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 220,
+    "calories": 430,
+    "protein": 9,
+    "carbs": 65,
+    "fat": 12,
+    "sugar": 11.7,
+    "fiber": 7.8,
+    "rating": "moderate",
+    "tags": [
+      "breakfast",
+      "moderate"
+    ],
+    "smartTip": "Serve Kiribath with Lunu Miris with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Kiribath with Lunu Miris with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Kiribath with Lunu Miris for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "String Hoppers with Pol Sambol",
+    "description": "String Hoppers with Pol Sambol is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 260,
+    "calories": 410,
+    "protein": 10,
+    "carbs": 70,
+    "fat": 8,
+    "sugar": 12.6,
+    "fiber": 8.4,
+    "rating": "good",
+    "tags": [
+      "breakfast",
+      "good"
+    ],
+    "smartTip": "Serve String Hoppers with Pol Sambol with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of String Hoppers with Pol Sambol with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to String Hoppers with Pol Sambol for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Egg Hoppers Duo",
+    "description": "Egg Hoppers Duo is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 200,
+    "calories": 360,
+    "protein": 14,
+    "carbs": 42,
+    "fat": 11,
+    "sugar": 7.6,
+    "fiber": 5.0,
+    "rating": "good",
+    "tags": [
+      "breakfast",
+      "good"
+    ],
+    "smartTip": "Serve Egg Hoppers Duo with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Egg Hoppers Duo with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Egg Hoppers Duo for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Kiri Bath with Fish Ambul Thiyal",
+    "description": "Kiri Bath with Fish Ambul Thiyal is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 260,
+    "calories": 480,
+    "protein": 24,
+    "carbs": 55,
+    "fat": 14,
+    "sugar": 9.9,
+    "fiber": 6.6,
+    "rating": "good",
+    "tags": [
+      "breakfast",
+      "good"
+    ],
+    "smartTip": "Serve Kiri Bath with Fish Ambul Thiyal with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Kiri Bath with Fish Ambul Thiyal with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Kiri Bath with Fish Ambul Thiyal for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Kurakkan Roti Stack",
+    "description": "Kurakkan Roti Stack is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 210,
+    "calories": 340,
+    "protein": 9,
+    "carbs": 48,
+    "fat": 11,
+    "sugar": 8.6,
+    "fiber": 5.8,
+    "rating": "good",
+    "tags": [
+      "breakfast",
+      "good"
+    ],
+    "smartTip": "Serve Kurakkan Roti Stack with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Kurakkan Roti Stack with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Kurakkan Roti Stack for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Pol Roti with Seeni Sambol",
+    "description": "Pol Roti with Seeni Sambol is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 240,
+    "calories": 420,
+    "protein": 8,
+    "carbs": 58,
+    "fat": 15,
+    "sugar": 10.4,
+    "fiber": 7.0,
+    "rating": "moderate",
+    "tags": [
+      "breakfast",
+      "moderate"
+    ],
+    "smartTip": "Serve Pol Roti with Seeni Sambol with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Pol Roti with Seeni Sambol with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Pol Roti with Seeni Sambol for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Kola Kenda Herbal Porridge",
+    "description": "Kola Kenda Herbal Porridge is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 300,
+    "calories": 260,
+    "protein": 6,
+    "carbs": 45,
+    "fat": 5,
+    "sugar": 8.1,
+    "fiber": 5.4,
+    "rating": "good",
+    "tags": [
+      "breakfast",
+      "good"
+    ],
+    "smartTip": "Serve Kola Kenda Herbal Porridge with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Kola Kenda Herbal Porridge with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Kola Kenda Herbal Porridge for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Gotukola Sambol Bowl",
+    "description": "Gotukola Sambol Bowl is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 120,
+    "calories": 110,
+    "protein": 4,
+    "carbs": 14,
+    "fat": 4,
+    "sugar": 2.5,
+    "fiber": 1.7,
+    "rating": "good",
+    "tags": [
+      "side",
+      "good"
+    ],
+    "smartTip": "Serve Gotukola Sambol Bowl with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Gotukola Sambol Bowl with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Gotukola Sambol Bowl for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Beetroot Mallung Salad",
+    "description": "Beetroot Mallung Salad is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 150,
+    "calories": 150,
+    "protein": 5,
+    "carbs": 24,
+    "fat": 3,
+    "sugar": 4.3,
+    "fiber": 2.9,
+    "rating": "good",
+    "tags": [
+      "side",
+      "good"
+    ],
+    "smartTip": "Serve Beetroot Mallung Salad with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Beetroot Mallung Salad with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Beetroot Mallung Salad for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Tempered Chickpea Snack",
+    "description": "Tempered Chickpea Snack is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 140,
+    "calories": 280,
+    "protein": 9,
+    "carbs": 32,
+    "fat": 10,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Tempered Chickpea Snack with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Tempered Chickpea Snack with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Tempered Chickpea Snack for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Parippu Wade (Lentil Fritters)",
+    "description": "Parippu Wade (Lentil Fritters) is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 160,
+    "calories": 360,
+    "protein": 12,
+    "carbs": 38,
+    "fat": 16,
+    "sugar": 6.8,
+    "fiber": 4.6,
+    "rating": "moderate",
+    "tags": [
+      "snack",
+      "moderate"
+    ],
+    "smartTip": "Pair Parippu Wade (Lentil Fritters) with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Parippu Wade (Lentil Fritters) with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Parippu Wade (Lentil Fritters) for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Crunchy Murukku Mix",
+    "description": "Crunchy Murukku Mix is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 100,
+    "calories": 420,
+    "protein": 8,
+    "carbs": 45,
+    "fat": 22,
+    "sugar": 8.1,
+    "fiber": 5.4,
+    "rating": "high-risk",
+    "tags": [
+      "snack",
+      "high risk"
+    ],
+    "smartTip": "Pair Crunchy Murukku Mix with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Crunchy Murukku Mix with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Crunchy Murukku Mix for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Spicy Manioc Chips",
+    "description": "Spicy Manioc Chips is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 90,
+    "calories": 390,
+    "protein": 4,
+    "carbs": 50,
+    "fat": 20,
+    "sugar": 9.0,
+    "fiber": 6.0,
+    "rating": "high-risk",
+    "tags": [
+      "snack",
+      "high risk"
+    ],
+    "smartTip": "Pair Spicy Manioc Chips with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Spicy Manioc Chips with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Spicy Manioc Chips for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Boiled Manioc with Coconut",
+    "description": "Boiled Manioc with Coconut is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 260,
+    "calories": 330,
+    "protein": 6,
+    "carbs": 58,
+    "fat": 9,
+    "sugar": 10.4,
+    "fiber": 7.0,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve Boiled Manioc with Coconut with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Boiled Manioc with Coconut with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Boiled Manioc with Coconut for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Jackfruit Polos Curry",
+    "description": "Jackfruit Polos Curry is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 300,
+    "calories": 370,
+    "protein": 12,
+    "carbs": 52,
+    "fat": 10,
+    "sugar": 9.4,
+    "fiber": 6.2,
+    "rating": "good",
+    "tags": [
+      "dinner",
+      "good"
+    ],
+    "smartTip": "Serve Jackfruit Polos Curry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Jackfruit Polos Curry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Jackfruit Polos Curry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Breadfruit Curry",
+    "description": "Breadfruit Curry is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 280,
+    "calories": 360,
+    "protein": 7,
+    "carbs": 58,
+    "fat": 11,
+    "sugar": 10.4,
+    "fiber": 7.0,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Breadfruit Curry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Breadfruit Curry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Breadfruit Curry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Cashew & Green Pea Curry",
+    "description": "Cashew & Green Pea Curry is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 240,
+    "calories": 420,
+    "protein": 15,
+    "carbs": 32,
+    "fat": 23,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Cashew & Green Pea Curry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Cashew & Green Pea Curry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Cashew & Green Pea Curry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Pumpkin Curry with Coconut Milk",
+    "description": "Pumpkin Curry with Coconut Milk is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 260,
+    "calories": 310,
+    "protein": 6,
+    "carbs": 32,
+    "fat": 14,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "good",
+    "tags": [
+      "dinner",
+      "good"
+    ],
+    "smartTip": "Serve Pumpkin Curry with Coconut Milk with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Pumpkin Curry with Coconut Milk with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Pumpkin Curry with Coconut Milk for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Winged Bean Salad",
+    "description": "Winged Bean Salad is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 160,
+    "calories": 200,
+    "protein": 9,
+    "carbs": 22,
+    "fat": 7,
+    "sugar": 4.0,
+    "fiber": 2.6,
+    "rating": "good",
+    "tags": [
+      "side",
+      "good"
+    ],
+    "smartTip": "Serve Winged Bean Salad with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Winged Bean Salad with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Winged Bean Salad for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Mixed Vegetable Kottu",
+    "description": "Mixed Vegetable Kottu is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 360,
+    "calories": 540,
+    "protein": 18,
+    "carbs": 70,
+    "fat": 16,
+    "sugar": 12.6,
+    "fiber": 8.4,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Mixed Vegetable Kottu with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Mixed Vegetable Kottu with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Mixed Vegetable Kottu for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Chicken Kottu Roti",
+    "description": "Chicken Kottu Roti is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 380,
+    "calories": 690,
+    "protein": 32,
+    "carbs": 78,
+    "fat": 24,
+    "sugar": 14.0,
+    "fiber": 9.4,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Chicken Kottu Roti with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Chicken Kottu Roti with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Chicken Kottu Roti for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Egg Kottu Roti",
+    "description": "Egg Kottu Roti is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 360,
+    "calories": 620,
+    "protein": 26,
+    "carbs": 74,
+    "fat": 22,
+    "sugar": 13.3,
+    "fiber": 8.9,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Egg Kottu Roti with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Egg Kottu Roti with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Egg Kottu Roti for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Seafood Fried Rice",
+    "description": "Seafood Fried Rice is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 360,
+    "calories": 640,
+    "protein": 30,
+    "carbs": 82,
+    "fat": 18,
+    "sugar": 14.8,
+    "fiber": 9.8,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Seafood Fried Rice with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Seafood Fried Rice with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Seafood Fried Rice for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Vegetable Fried Rice",
+    "description": "Vegetable Fried Rice is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 340,
+    "calories": 520,
+    "protein": 14,
+    "carbs": 80,
+    "fat": 15,
+    "sugar": 14.4,
+    "fiber": 9.6,
+    "rating": "moderate",
+    "tags": [
+      "lunch",
+      "moderate"
+    ],
+    "smartTip": "Serve Vegetable Fried Rice with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Vegetable Fried Rice with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Vegetable Fried Rice for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Sri Lankan Nasi Goreng",
+    "description": "Sri Lankan Nasi Goreng is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 400,
+    "calories": 720,
+    "protein": 34,
+    "carbs": 90,
+    "fat": 24,
+    "sugar": 16.2,
+    "fiber": 10.8,
+    "rating": "high-risk",
+    "tags": [
+      "dinner",
+      "high risk"
+    ],
+    "smartTip": "Serve Sri Lankan Nasi Goreng with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Sri Lankan Nasi Goreng with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Sri Lankan Nasi Goreng for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Chicken Lamprais Parcel",
+    "description": "Chicken Lamprais Parcel is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 420,
+    "calories": 760,
+    "protein": 32,
+    "carbs": 96,
+    "fat": 28,
+    "sugar": 17.3,
+    "fiber": 11.5,
+    "rating": "high-risk",
+    "tags": [
+      "dinner",
+      "high risk"
+    ],
+    "smartTip": "Serve Chicken Lamprais Parcel with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Chicken Lamprais Parcel with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Chicken Lamprais Parcel for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Mutton Biryani",
+    "description": "Mutton Biryani is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 400,
+    "calories": 780,
+    "protein": 36,
+    "carbs": 88,
+    "fat": 30,
+    "sugar": 15.8,
+    "fiber": 10.6,
+    "rating": "high-risk",
+    "tags": [
+      "dinner",
+      "high risk"
+    ],
+    "smartTip": "Serve Mutton Biryani with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Mutton Biryani with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Mutton Biryani for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Fish Ambul Thiyal",
+    "description": "Fish Ambul Thiyal is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 220,
+    "calories": 280,
+    "protein": 32,
+    "carbs": 6,
+    "fat": 10,
+    "sugar": 1.1,
+    "fiber": 0.7,
+    "rating": "good",
+    "tags": [
+      "dinner",
+      "good"
+    ],
+    "smartTip": "Serve Fish Ambul Thiyal with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Fish Ambul Thiyal with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Fish Ambul Thiyal for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Coconut Milk Fish Curry",
+    "description": "Coconut Milk Fish Curry is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 260,
+    "calories": 460,
+    "protein": 28,
+    "carbs": 12,
+    "fat": 32,
+    "sugar": 2.2,
+    "fiber": 1.4,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Coconut Milk Fish Curry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Coconut Milk Fish Curry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Coconut Milk Fish Curry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Dry Sprats Fry",
+    "description": "Dry Sprats Fry is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 100,
+    "calories": 260,
+    "protein": 24,
+    "carbs": 6,
+    "fat": 16,
+    "sugar": 1.1,
+    "fiber": 0.7,
+    "rating": "moderate",
+    "tags": [
+      "side",
+      "moderate"
+    ],
+    "smartTip": "Serve Dry Sprats Fry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Dry Sprats Fry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Dry Sprats Fry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Devilled Prawn Stir",
+    "description": "Devilled Prawn Stir is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 240,
+    "calories": 390,
+    "protein": 30,
+    "carbs": 18,
+    "fat": 18,
+    "sugar": 3.2,
+    "fiber": 2.2,
+    "rating": "good",
+    "tags": [
+      "dinner",
+      "good"
+    ],
+    "smartTip": "Serve Devilled Prawn Stir with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Devilled Prawn Stir with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Devilled Prawn Stir for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Devilled Cashew Snack",
+    "description": "Devilled Cashew Snack is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 80,
+    "calories": 360,
+    "protein": 10,
+    "carbs": 18,
+    "fat": 28,
+    "sugar": 3.2,
+    "fiber": 2.2,
+    "rating": "high-risk",
+    "tags": [
+      "snack",
+      "high risk"
+    ],
+    "smartTip": "Pair Devilled Cashew Snack with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Devilled Cashew Snack with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Devilled Cashew Snack for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Spicy Chickpea Mix",
+    "description": "Spicy Chickpea Mix is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 120,
+    "calories": 300,
+    "protein": 11,
+    "carbs": 40,
+    "fat": 8,
+    "sugar": 7.2,
+    "fiber": 4.8,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Spicy Chickpea Mix with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Spicy Chickpea Mix with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Spicy Chickpea Mix for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Boiled Jack Seeds",
+    "description": "Boiled Jack Seeds is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 150,
+    "calories": 220,
+    "protein": 8,
+    "carbs": 36,
+    "fat": 4,
+    "sugar": 6.5,
+    "fiber": 4.3,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Boiled Jack Seeds with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Boiled Jack Seeds with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Boiled Jack Seeds for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Sweet Potato with Coconut",
+    "description": "Sweet Potato with Coconut is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 180,
+    "calories": 260,
+    "protein": 5,
+    "carbs": 42,
+    "fat": 8,
+    "sugar": 7.6,
+    "fiber": 5.0,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Sweet Potato with Coconut with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Sweet Potato with Coconut with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Sweet Potato with Coconut for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Kurakkan Porridge",
+    "description": "Kurakkan Porridge is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 280,
+    "calories": 310,
+    "protein": 9,
+    "carbs": 52,
+    "fat": 6,
+    "sugar": 9.4,
+    "fiber": 6.2,
+    "rating": "good",
+    "tags": [
+      "breakfast",
+      "good"
+    ],
+    "smartTip": "Serve Kurakkan Porridge with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Kurakkan Porridge with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Kurakkan Porridge for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Millet Porridge with Treacle",
+    "description": "Millet Porridge with Treacle is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 300,
+    "calories": 350,
+    "protein": 10,
+    "carbs": 60,
+    "fat": 7,
+    "sugar": 10.8,
+    "fiber": 7.2,
+    "rating": "moderate",
+    "tags": [
+      "breakfast",
+      "moderate"
+    ],
+    "smartTip": "Serve Millet Porridge with Treacle with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Millet Porridge with Treacle with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Millet Porridge with Treacle for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Tropical Fruit Salad",
+    "description": "Tropical Fruit Salad is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 220,
+    "calories": 200,
+    "protein": 4,
+    "carbs": 48,
+    "fat": 2,
+    "sugar": 8.6,
+    "fiber": 5.8,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Tropical Fruit Salad with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Tropical Fruit Salad with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Tropical Fruit Salad for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Pineapple with Chili Salt",
+    "description": "Pineapple with Chili Salt is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 180,
+    "calories": 150,
+    "protein": 2,
+    "carbs": 38,
+    "fat": 1,
+    "sugar": 6.8,
+    "fiber": 4.6,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Pineapple with Chili Salt with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Pineapple with Chili Salt with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Pineapple with Chili Salt for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Kithul Treacle Yogurt",
+    "description": "Kithul Treacle Yogurt is a beloved Sri Lankan dessert option enjoyed across the island.",
+    "category": "dessert",
+    "portionGrams": 200,
+    "calories": 280,
+    "protein": 9,
+    "carbs": 32,
+    "fat": 10,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "moderate",
+    "tags": [
+      "dessert",
+      "moderate"
+    ],
+    "smartTip": "Pair Kithul Treacle Yogurt with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Kithul Treacle Yogurt with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Kithul Treacle Yogurt for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Buffalo Curd with Honey",
+    "description": "Buffalo Curd with Honey is a beloved Sri Lankan dessert option enjoyed across the island.",
+    "category": "dessert",
+    "portionGrams": 220,
+    "calories": 320,
+    "protein": 12,
+    "carbs": 28,
+    "fat": 12,
+    "sugar": 5.0,
+    "fiber": 3.4,
+    "rating": "moderate",
+    "tags": [
+      "dessert",
+      "moderate"
+    ],
+    "smartTip": "Pair Buffalo Curd with Honey with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Buffalo Curd with Honey with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Buffalo Curd with Honey for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Wood Apple Smoothie",
+    "description": "Wood Apple Smoothie is a beloved Sri Lankan beverage option enjoyed across the island.",
+    "category": "beverage",
+    "portionGrams": 300,
+    "calories": 260,
+    "protein": 5,
+    "carbs": 48,
+    "fat": 4,
+    "sugar": 8.6,
+    "fiber": 5.8,
+    "rating": "good",
+    "tags": [
+      "beverage",
+      "good"
+    ],
+    "smartTip": "Cut added sugar in Wood Apple Smoothie by relying on ripe fruit or kithul treacle.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Wood Apple Smoothie with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Wood Apple Smoothie for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Avocado Kithul Shake",
+    "description": "Avocado Kithul Shake is a beloved Sri Lankan beverage option enjoyed across the island.",
+    "category": "beverage",
+    "portionGrams": 320,
+    "calories": 420,
+    "protein": 9,
+    "carbs": 36,
+    "fat": 22,
+    "sugar": 6.5,
+    "fiber": 4.3,
+    "rating": "moderate",
+    "tags": [
+      "beverage",
+      "moderate"
+    ],
+    "smartTip": "Cut added sugar in Avocado Kithul Shake by relying on ripe fruit or kithul treacle.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Avocado Kithul Shake with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Avocado Kithul Shake for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Faluda Colombo Style",
+    "description": "Faluda Colombo Style is a beloved Sri Lankan beverage option enjoyed across the island.",
+    "category": "beverage",
+    "portionGrams": 350,
+    "calories": 520,
+    "protein": 10,
+    "carbs": 78,
+    "fat": 16,
+    "sugar": 14.0,
+    "fiber": 9.4,
+    "rating": "high-risk",
+    "tags": [
+      "beverage",
+      "high risk"
+    ],
+    "smartTip": "Cut added sugar in Faluda Colombo Style by relying on ripe fruit or kithul treacle.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Faluda Colombo Style with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Faluda Colombo Style for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "King Coconut Water",
+    "description": "King Coconut Water is a beloved Sri Lankan beverage option enjoyed across the island.",
+    "category": "beverage",
+    "portionGrams": 240,
+    "calories": 60,
+    "protein": 1,
+    "carbs": 15,
+    "fat": 0,
+    "sugar": 2.7,
+    "fiber": 1.8,
+    "rating": "good",
+    "tags": [
+      "beverage",
+      "good"
+    ],
+    "smartTip": "Cut added sugar in King Coconut Water by relying on ripe fruit or kithul treacle.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of King Coconut Water with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to King Coconut Water for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Nelli Cordial Refresher",
+    "description": "Nelli Cordial Refresher is a beloved Sri Lankan beverage option enjoyed across the island.",
+    "category": "beverage",
+    "portionGrams": 260,
+    "calories": 140,
+    "protein": 1,
+    "carbs": 34,
+    "fat": 0,
+    "sugar": 6.1,
+    "fiber": 4.1,
+    "rating": "moderate",
+    "tags": [
+      "beverage",
+      "moderate"
+    ],
+    "smartTip": "Cut added sugar in Nelli Cordial Refresher by relying on ripe fruit or kithul treacle.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Nelli Cordial Refresher with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Nelli Cordial Refresher for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Ambarella Achcharu Cup",
+    "description": "Ambarella Achcharu Cup is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 160,
+    "calories": 180,
+    "protein": 2,
+    "carbs": 44,
+    "fat": 1,
+    "sugar": 7.9,
+    "fiber": 5.3,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Ambarella Achcharu Cup with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Ambarella Achcharu Cup with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Ambarella Achcharu Cup for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Pol Pani Pancake",
+    "description": "Pol Pani Pancake is a beloved Sri Lankan dessert option enjoyed across the island.",
+    "category": "dessert",
+    "portionGrams": 140,
+    "calories": 340,
+    "protein": 6,
+    "carbs": 58,
+    "fat": 10,
+    "sugar": 10.4,
+    "fiber": 7.0,
+    "rating": "moderate",
+    "tags": [
+      "dessert",
+      "moderate"
+    ],
+    "smartTip": "Pair Pol Pani Pancake with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Pol Pani Pancake with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Pol Pani Pancake for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Kokis Festive Treat",
+    "description": "Kokis Festive Treat is a beloved Sri Lankan dessert option enjoyed across the island.",
+    "category": "dessert",
+    "portionGrams": 100,
+    "calories": 360,
+    "protein": 5,
+    "carbs": 42,
+    "fat": 18,
+    "sugar": 7.6,
+    "fiber": 5.0,
+    "rating": "high-risk",
+    "tags": [
+      "dessert",
+      "high risk"
+    ],
+    "smartTip": "Pair Kokis Festive Treat with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Kokis Festive Treat with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Kokis Festive Treat for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Aggala Energy Balls",
+    "description": "Aggala Energy Balls is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 120,
+    "calories": 240,
+    "protein": 6,
+    "carbs": 32,
+    "fat": 9,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Aggala Energy Balls with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Aggala Energy Balls with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Aggala Energy Balls for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Aluwa Coconut Fudge",
+    "description": "Aluwa Coconut Fudge is a beloved Sri Lankan dessert option enjoyed across the island.",
+    "category": "dessert",
+    "portionGrams": 120,
+    "calories": 310,
+    "protein": 4,
+    "carbs": 45,
+    "fat": 12,
+    "sugar": 8.1,
+    "fiber": 5.4,
+    "rating": "high-risk",
+    "tags": [
+      "dessert",
+      "high risk"
+    ],
+    "smartTip": "Pair Aluwa Coconut Fudge with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Aluwa Coconut Fudge with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Aluwa Coconut Fudge for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Coconut Toffee Bites",
+    "description": "Coconut Toffee Bites is a beloved Sri Lankan dessert option enjoyed across the island.",
+    "category": "dessert",
+    "portionGrams": 80,
+    "calories": 300,
+    "protein": 3,
+    "carbs": 34,
+    "fat": 16,
+    "sugar": 6.1,
+    "fiber": 4.1,
+    "rating": "high-risk",
+    "tags": [
+      "dessert",
+      "high risk"
+    ],
+    "smartTip": "Pair Coconut Toffee Bites with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Coconut Toffee Bites with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Coconut Toffee Bites for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Banana Fritters with Kithul",
+    "description": "Banana Fritters with Kithul is a beloved Sri Lankan dessert option enjoyed across the island.",
+    "category": "dessert",
+    "portionGrams": 160,
+    "calories": 420,
+    "protein": 6,
+    "carbs": 64,
+    "fat": 14,
+    "sugar": 11.5,
+    "fiber": 7.7,
+    "rating": "high-risk",
+    "tags": [
+      "dessert",
+      "high risk"
+    ],
+    "smartTip": "Pair Banana Fritters with Kithul with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Banana Fritters with Kithul with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Banana Fritters with Kithul for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Steamed Pittu with Coconut",
+    "description": "Steamed Pittu with Coconut is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 260,
+    "calories": 380,
+    "protein": 8,
+    "carbs": 64,
+    "fat": 10,
+    "sugar": 11.5,
+    "fiber": 7.7,
+    "rating": "moderate",
+    "tags": [
+      "breakfast",
+      "moderate"
+    ],
+    "smartTip": "Serve Steamed Pittu with Coconut with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Steamed Pittu with Coconut with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Steamed Pittu with Coconut for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Fish Cutlets",
+    "description": "Fish Cutlets is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 130,
+    "calories": 260,
+    "protein": 13,
+    "carbs": 28,
+    "fat": 9,
+    "sugar": 5.0,
+    "fiber": 3.4,
+    "rating": "moderate",
+    "tags": [
+      "snack",
+      "moderate"
+    ],
+    "smartTip": "Pair Fish Cutlets with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Fish Cutlets with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Fish Cutlets for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Vegetable Cutlets",
+    "description": "Vegetable Cutlets is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 130,
+    "calories": 240,
+    "protein": 8,
+    "carbs": 30,
+    "fat": 9,
+    "sugar": 5.4,
+    "fiber": 3.6,
+    "rating": "good",
+    "tags": [
+      "snack",
+      "good"
+    ],
+    "smartTip": "Pair Vegetable Cutlets with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Vegetable Cutlets with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Vegetable Cutlets for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Chicken Stuffed Bun",
+    "description": "Chicken Stuffed Bun is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 150,
+    "calories": 320,
+    "protein": 14,
+    "carbs": 38,
+    "fat": 11,
+    "sugar": 6.8,
+    "fiber": 4.6,
+    "rating": "moderate",
+    "tags": [
+      "snack",
+      "moderate"
+    ],
+    "smartTip": "Pair Chicken Stuffed Bun with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Chicken Stuffed Bun with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Chicken Stuffed Bun for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Egg Roll with Maldive Fish",
+    "description": "Egg Roll with Maldive Fish is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 140,
+    "calories": 310,
+    "protein": 12,
+    "carbs": 34,
+    "fat": 12,
+    "sugar": 6.1,
+    "fiber": 4.1,
+    "rating": "moderate",
+    "tags": [
+      "snack",
+      "moderate"
+    ],
+    "smartTip": "Pair Egg Roll with Maldive Fish with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Egg Roll with Maldive Fish with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Egg Roll with Maldive Fish for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Fish Roll with Chili Paste",
+    "description": "Fish Roll with Chili Paste is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 150,
+    "calories": 340,
+    "protein": 15,
+    "carbs": 36,
+    "fat": 13,
+    "sugar": 6.5,
+    "fiber": 4.3,
+    "rating": "moderate",
+    "tags": [
+      "snack",
+      "moderate"
+    ],
+    "smartTip": "Pair Fish Roll with Chili Paste with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Fish Roll with Chili Paste with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Fish Roll with Chili Paste for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Brinjal Moju",
+    "description": "Brinjal Moju is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 120,
+    "calories": 260,
+    "protein": 4,
+    "carbs": 32,
+    "fat": 12,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "moderate",
+    "tags": [
+      "side",
+      "moderate"
+    ],
+    "smartTip": "Serve Brinjal Moju with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Brinjal Moju with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Brinjal Moju for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Pineapple Curry",
+    "description": "Pineapple Curry is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 180,
+    "calories": 210,
+    "protein": 3,
+    "carbs": 46,
+    "fat": 4,
+    "sugar": 8.3,
+    "fiber": 5.5,
+    "rating": "good",
+    "tags": [
+      "side",
+      "good"
+    ],
+    "smartTip": "Serve Pineapple Curry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Pineapple Curry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Pineapple Curry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Mango Curry",
+    "description": "Mango Curry is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 200,
+    "calories": 220,
+    "protein": 3,
+    "carbs": 48,
+    "fat": 5,
+    "sugar": 8.6,
+    "fiber": 5.8,
+    "rating": "good",
+    "tags": [
+      "side",
+      "good"
+    ],
+    "smartTip": "Serve Mango Curry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Mango Curry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Mango Curry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Okra Thel Dala",
+    "description": "Okra Thel Dala is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 160,
+    "calories": 190,
+    "protein": 5,
+    "carbs": 18,
+    "fat": 8,
+    "sugar": 3.2,
+    "fiber": 2.2,
+    "rating": "good",
+    "tags": [
+      "side",
+      "good"
+    ],
+    "smartTip": "Serve Okra Thel Dala with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Okra Thel Dala with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Okra Thel Dala for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Ready-to-drink Gotukola Kanda",
+    "description": "Ready-to-drink Gotukola Kanda is a beloved Sri Lankan beverage option enjoyed across the island.",
+    "category": "beverage",
+    "portionGrams": 250,
+    "calories": 210,
+    "protein": 5,
+    "carbs": 38,
+    "fat": 4,
+    "sugar": 6.8,
+    "fiber": 4.6,
+    "rating": "good",
+    "tags": [
+      "beverage",
+      "good"
+    ],
+    "smartTip": "Cut added sugar in Ready-to-drink Gotukola Kanda by relying on ripe fruit or kithul treacle.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Ready-to-drink Gotukola Kanda with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Ready-to-drink Gotukola Kanda for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Herbal Salad Bowl",
+    "description": "Herbal Salad Bowl is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 280,
+    "calories": 260,
+    "protein": 11,
+    "carbs": 32,
+    "fat": 9,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve Herbal Salad Bowl with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Herbal Salad Bowl with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Herbal Salad Bowl for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Student Budget Rice Bowl",
+    "description": "Student Budget Rice Bowl is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 320,
+    "calories": 450,
+    "protein": 16,
+    "carbs": 72,
+    "fat": 10,
+    "sugar": 13.0,
+    "fiber": 8.6,
+    "rating": "moderate",
+    "tags": [
+      "lunch",
+      "moderate"
+    ],
+    "smartTip": "Serve Student Budget Rice Bowl with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Student Budget Rice Bowl with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Student Budget Rice Bowl for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Diabetes Care Meal Plan Plate",
+    "description": "Diabetes Care Meal Plan Plate is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 300,
+    "calories": 380,
+    "protein": 22,
+    "carbs": 42,
+    "fat": 12,
+    "sugar": 7.6,
+    "fiber": 5.0,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve Diabetes Care Meal Plan Plate with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Diabetes Care Meal Plan Plate with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Diabetes Care Meal Plan Plate for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Weight Loss Meal Plate",
+    "description": "Weight Loss Meal Plate is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 280,
+    "calories": 340,
+    "protein": 24,
+    "carbs": 32,
+    "fat": 11,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve Weight Loss Meal Plate with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Weight Loss Meal Plate with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Weight Loss Meal Plate for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Student Snack Box",
+    "description": "Student Snack Box is a beloved Sri Lankan snack option enjoyed across the island.",
+    "category": "snack",
+    "portionGrams": 180,
+    "calories": 320,
+    "protein": 12,
+    "carbs": 38,
+    "fat": 12,
+    "sugar": 6.8,
+    "fiber": 4.6,
+    "rating": "moderate",
+    "tags": [
+      "snack",
+      "moderate"
+    ],
+    "smartTip": "Pair Student Snack Box with plain tea and limit to one portion. Add fresh fruit to tame sweetness.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Student Snack Box with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Student Snack Box for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Breakfast Bento - Active",
+    "description": "Breakfast Bento - Active is a beloved Sri Lankan breakfast option enjoyed across the island.",
+    "category": "breakfast",
+    "portionGrams": 320,
+    "calories": 520,
+    "protein": 26,
+    "carbs": 58,
+    "fat": 18,
+    "sugar": 10.4,
+    "fiber": 7.0,
+    "rating": "good",
+    "tags": [
+      "breakfast",
+      "good"
+    ],
+    "smartTip": "Serve Breakfast Bento - Active with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Breakfast Bento - Active with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Breakfast Bento - Active for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "High Protein Sambol Bowl",
+    "description": "High Protein Sambol Bowl is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 260,
+    "calories": 400,
+    "protein": 28,
+    "carbs": 32,
+    "fat": 14,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve High Protein Sambol Bowl with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of High Protein Sambol Bowl with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to High Protein Sambol Bowl for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Coconut Sambol Mini",
+    "description": "Coconut Sambol Mini is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 80,
+    "calories": 150,
+    "protein": 2,
+    "carbs": 10,
+    "fat": 12,
+    "sugar": 1.8,
+    "fiber": 1.2,
+    "rating": "moderate",
+    "tags": [
+      "side",
+      "moderate"
+    ],
+    "smartTip": "Serve Coconut Sambol Mini with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Coconut Sambol Mini with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Coconut Sambol Mini for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Seeni Sambol Spread",
+    "description": "Seeni Sambol Spread is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 90,
+    "calories": 210,
+    "protein": 1,
+    "carbs": 42,
+    "fat": 6,
+    "sugar": 7.6,
+    "fiber": 5.0,
+    "rating": "high-risk",
+    "tags": [
+      "side",
+      "high risk"
+    ],
+    "smartTip": "Serve Seeni Sambol Spread with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Seeni Sambol Spread with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Seeni Sambol Spread for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Lunu Miris Burst",
+    "description": "Lunu Miris Burst is a beloved Sri Lankan side option enjoyed across the island.",
+    "category": "side",
+    "portionGrams": 60,
+    "calories": 90,
+    "protein": 2,
+    "carbs": 12,
+    "fat": 3,
+    "sugar": 2.2,
+    "fiber": 1.4,
+    "rating": "good",
+    "tags": [
+      "side",
+      "good"
+    ],
+    "smartTip": "Serve Lunu Miris Burst with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Lunu Miris Burst with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Lunu Miris Burst for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Jackfruit Biryani",
+    "description": "Jackfruit Biryani is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 360,
+    "calories": 620,
+    "protein": 20,
+    "carbs": 88,
+    "fat": 16,
+    "sugar": 15.8,
+    "fiber": 10.6,
+    "rating": "moderate",
+    "tags": [
+      "dinner",
+      "moderate"
+    ],
+    "smartTip": "Serve Jackfruit Biryani with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Jackfruit Biryani with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Jackfruit Biryani for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Seer Fish Curry",
+    "description": "Seer Fish Curry is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 240,
+    "calories": 360,
+    "protein": 30,
+    "carbs": 8,
+    "fat": 16,
+    "sugar": 1.4,
+    "fiber": 1.0,
+    "rating": "good",
+    "tags": [
+      "dinner",
+      "good"
+    ],
+    "smartTip": "Serve Seer Fish Curry with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Seer Fish Curry with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Seer Fish Curry for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Pol Roti Wrap with Tuna",
+    "description": "Pol Roti Wrap with Tuna is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 280,
+    "calories": 430,
+    "protein": 27,
+    "carbs": 34,
+    "fat": 16,
+    "sugar": 6.1,
+    "fiber": 4.1,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve Pol Roti Wrap with Tuna with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Pol Roti Wrap with Tuna with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Pol Roti Wrap with Tuna for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Sprouted Mung Salad",
+    "description": "Sprouted Mung Salad is a beloved Sri Lankan lunch option enjoyed across the island.",
+    "category": "lunch",
+    "portionGrams": 220,
+    "calories": 260,
+    "protein": 17,
+    "carbs": 32,
+    "fat": 7,
+    "sugar": 5.8,
+    "fiber": 3.8,
+    "rating": "good",
+    "tags": [
+      "lunch",
+      "good"
+    ],
+    "smartTip": "Serve Sprouted Mung Salad with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Sprouted Mung Salad with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Sprouted Mung Salad for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  },
+  {
+    "name": "Healthy String Hopper Kottu",
+    "description": "Healthy String Hopper Kottu is a beloved Sri Lankan dinner option enjoyed across the island.",
+    "category": "dinner",
+    "portionGrams": 340,
+    "calories": 520,
+    "protein": 24,
+    "carbs": 70,
+    "fat": 14,
+    "sugar": 12.6,
+    "fiber": 8.4,
+    "rating": "good",
+    "tags": [
+      "dinner",
+      "good"
+    ],
+    "smartTip": "Serve Healthy String Hopper Kottu with gotukola, cucumber or mallung to add fiber and balance.",
+    "swaps": [
+      {
+        "title": "Half rice + veg",
+        "description": "Replace half of Healthy String Hopper Kottu with steamed gotukola or kola mallung."
+      },
+      {
+        "title": "Lean protein twist",
+        "description": "Add grilled fish or boiled mung to Healthy String Hopper Kottu for satiety."
+      },
+      {
+        "title": "Coconut smart swap",
+        "description": "Use second-press coconut milk or roast instead of deep fry to cut fat."
+      }
+    ],
+    "culturalContext": "Rooted in Sri Lankan home cooking and street food culture."
+  }
+]
