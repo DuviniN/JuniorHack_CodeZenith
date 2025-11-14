@@ -13,7 +13,8 @@ const AdminDashboard = () => {
     const [editingAdvisor, setEditingAdvisor] = useState(null);
     const [users, setUsers] = useState([]);
     const [appointments, setAppointments] = useState([]);
-    const [kpiDetailView, setKpiDetailView] = useState(null); // 'pendingFoods', 'advisors', 'appointments', 'users'
+    const [pendingFoodsSearch, setPendingFoodsSearch] = useState('');
+    const [approvedFoodsSearch, setApprovedFoodsSearch] = useState('');
     const [form, setForm] = useState({
         name: '',
         specialty: '',
@@ -112,22 +113,30 @@ const AdminDashboard = () => {
         }
     };
 
-    const handleKpiClick = (key) => {
-        if (kpiDetailView === key) {
-            setKpiDetailView(null);
-        } else {
-            setKpiDetailView(key);
-            if (key === 'advisors') {
-                loadAdvisors();
-            } else if (key === 'users') {
-                loadUsers();
-            } else if (key === 'appointments') {
-                loadAppointments();
-            } else if (key === 'pendingFoods') {
-                loadData();
-            }
+    const handleDeleteUser = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+            return;
+        }
+        try {
+            await api.delete(`/admin/users/${id}`);
+            alert('User deleted successfully!');
+            loadUsers();
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to delete user');
         }
     };
+
+    const filteredPendingFoods = pendingFoods.filter((food) =>
+        food.name.toLowerCase().includes(pendingFoodsSearch.toLowerCase()) ||
+        (food.description && food.description.toLowerCase().includes(pendingFoodsSearch.toLowerCase())) ||
+        (food.category && food.category.toLowerCase().includes(pendingFoodsSearch.toLowerCase()))
+    );
+
+    const filteredApprovedFoods = approvedFoods.filter((food) =>
+        food.name.toLowerCase().includes(approvedFoodsSearch.toLowerCase()) ||
+        (food.description && food.description.toLowerCase().includes(approvedFoodsSearch.toLowerCase())) ||
+        (food.category && food.category.toLowerCase().includes(approvedFoodsSearch.toLowerCase()))
+    );
 
     useEffect(() => {
         loadData();
@@ -144,6 +153,9 @@ const AdminDashboard = () => {
         }
         if (activeTab === 'approvedFoods') {
             loadApprovedFoods();
+        }
+        if (activeTab === 'manageUsers') {
+            loadUsers();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTab]);
@@ -283,7 +295,8 @@ const AdminDashboard = () => {
         { id: 'admin', label: 'Add Admin' },
         { id: 'manageAdmins', label: 'Manage Admins' },
         { id: 'advisor', label: 'Add Advisor' },
-        { id: 'manageAdvisors', label: 'Manage Advisors' }
+        { id: 'manageAdvisors', label: 'Manage Advisors' },
+        { id: 'manageUsers', label: 'Manage Users' }
     ];
 
     return (
@@ -298,200 +311,20 @@ const AdminDashboard = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                     { key: 'pendingFoods', label: 'Pending Foods' },
-                    { key: 'advisorCount', label: 'Advisors', detailKey: 'advisors' },
-                    { key: 'appointmentCount', label: 'Appointments', detailKey: 'appointments' },
-                    { key: 'userCount', label: 'Users', detailKey: 'users' }
+                    { key: 'advisorCount', label: 'Advisors' },
+                    { key: 'appointmentCount', label: 'Appointments' },
+                    { key: 'userCount', label: 'Users' }
                 ].map((item) => (
-                    <button
+                    <div
                         key={item.key}
-                        onClick={() => handleKpiClick(item.detailKey || item.key)}
-                        className={`card text-center hover:shadow-lg transition cursor-pointer ${
-                            kpiDetailView === (item.detailKey || item.key) ? 'ring-2 ring-brand-primary' : ''
-                        }`}
+                        className="card text-center"
                     >
                         <p className="text-sm text-slate-500">{item.label}</p>
                         <p className="text-2xl font-semibold text-slate-900">{kpis?.[item.key] ?? '—'}</p>
-                        <p className="text-xs text-brand-primary mt-1">
-                            {kpiDetailView === (item.detailKey || item.key) ? 'Hide list' : 'View list'}
-                        </p>
-                    </button>
+                    </div>
                 ))}
             </div>
 
-            {/* KPI Detail Lists */}
-            {kpiDetailView && (
-                <div className="card">
-                    <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-lg font-semibold text-slate-800">
-                            {kpiDetailView === 'pendingFoods' && 'Pending Foods'}
-                            {kpiDetailView === 'advisors' && 'All Advisors'}
-                            {kpiDetailView === 'appointments' && 'All Appointments'}
-                            {kpiDetailView === 'users' && 'All Users'}
-                        </h3>
-                        <button
-                            onClick={() => setKpiDetailView(null)}
-                            className="text-sm text-slate-500 hover:text-slate-700"
-                        >
-                            Close
-                        </button>
-                    </div>
-                    <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                        {kpiDetailView === 'pendingFoods' && (
-                            <>
-                                {pendingFoods.map((food) => (
-                                    <div key={food._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">{food.name}</p>
-                                                <p className="text-sm text-slate-500 mt-1">{food.description}</p>
-                                                <div className="flex gap-2 mt-2 text-xs text-slate-600">
-                                                    <span>{food.calories} kcal</span>
-                                                    <span>•</span>
-                                                    <span>{food.category}</span>
-                                                    <span>•</span>
-                                                    <span className={`px-2 py-0.5 rounded-full ${
-                                                        food.rating === 'good' ? 'bg-green-100 text-green-700' :
-                                                        food.rating === 'moderate' ? 'bg-amber-100 text-amber-700' :
-                                                        'bg-rose-100 text-rose-700'
-                                                    }`}>
-                                                        {food.rating}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                onClick={() => approveFood(food._id)}
-                                                className="ml-4 px-4 py-2 rounded-full bg-brand-primary text-white text-sm font-semibold hover:bg-brand-dark transition"
-                                            >
-                                                Approve
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!pendingFoods.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No pending foods 🎉</p>
-                                )}
-                            </>
-                        )}
-
-                        {kpiDetailView === 'advisors' && (
-                            <>
-                                {advisors.map((advisor) => (
-                                    <div key={advisor._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">{advisor.name}</p>
-                                                <p className="text-sm text-slate-500 mt-1">
-                                                    {advisor.specialty && <span>{advisor.specialty}</span>}
-                                                    {advisor.specialty && advisor.city && <span> • </span>}
-                                                    {advisor.city && <span>{advisor.city}</span>}
-                                                </p>
-                                                {advisor.languages && advisor.languages.length > 0 && (
-                                                    <p className="text-sm text-slate-500 mt-1">
-                                                        Languages: {Array.isArray(advisor.languages) ? advisor.languages.join(', ') : advisor.languages}
-                                                    </p>
-                                                )}
-                                                <div className="flex gap-4 mt-2 text-xs text-slate-500">
-                                                    {advisor.feeLkr && <span>Fee: LKR {advisor.feeLkr}</span>}
-                                                    {advisor.experienceYears && <span>Experience: {advisor.experienceYears} years</span>}
-                                                    {advisor.rating && <span>Rating: {advisor.rating} ★</span>}
-                                                </div>
-                                                {advisor.bio && (
-                                                    <p className="text-sm text-slate-600 mt-2">{advisor.bio}</p>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!advisors.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No advisors found</p>
-                                )}
-                            </>
-                        )}
-
-                        {kpiDetailView === 'appointments' && (
-                            <>
-                                {appointments.map((appointment) => (
-                                    <div key={appointment._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">
-                                                    {appointment.advisor?.name || 'Advisor TBD'}
-                                                </p>
-                                                <p className="text-sm text-slate-500 mt-1">
-                                                    User: {appointment.user?.name || 'Unknown'} ({appointment.user?.email || 'N/A'})
-                                                </p>
-                                                <p className="text-sm text-slate-600 mt-1">
-                                                    Scheduled: {new Date(appointment.scheduledFor).toLocaleString()}
-                                                </p>
-                                                <div className="flex gap-2 mt-2 text-xs">
-                                                    <span className={`px-2 py-0.5 rounded-full ${
-                                                        appointment.status === 'confirmed' ? 'bg-green-100 text-green-700' :
-                                                        appointment.status === 'pending' ? 'bg-amber-100 text-amber-700' :
-                                                        appointment.status === 'completed' ? 'bg-blue-100 text-blue-700' :
-                                                        'bg-red-100 text-red-700'
-                                                    }`}>
-                                                        {appointment.status?.toUpperCase()}
-                                                    </span>
-                                                    {appointment.notes && (
-                                                        <span className="text-slate-500">Notes: {appointment.notes}</span>
-                                                    )}
-                                                </div>
-                                                <p className="text-xs text-slate-400 mt-2">
-                                                    Created: {new Date(appointment.createdAt).toLocaleDateString()}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!appointments.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No appointments found</p>
-                                )}
-                            </>
-                        )}
-
-                        {kpiDetailView === 'users' && (
-                            <>
-                                {users.map((user) => (
-                                    <div key={user._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">{user.name}</p>
-                                                <p className="text-sm text-slate-500 mt-1">{user.email}</p>
-                                                <div className="flex gap-2 mt-2 text-xs">
-                                                    <span className={`px-2 py-0.5 rounded-full ${
-                                                        user.role === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
-                                                    }`}>
-                                                        {user.role?.toUpperCase()}
-                                                    </span>
-                                                    {user.onboardingCompleted && (
-                                                        <span className="px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-                                                            Onboarding Complete
-                                                        </span>
-                                                    )}
-                                                </div>
-                                                {user.onboarding && (
-                                                    <div className="mt-2 text-xs text-slate-500">
-                                                        <p>Age: {user.onboarding.age || 'N/A'}</p>
-                                                        <p>Weight: {user.onboarding.weightKg || 'N/A'} kg</p>
-                                                        <p>Height: {user.onboarding.heightCm || 'N/A'} cm</p>
-                                                        <p>Goal: {user.onboarding.goal || 'N/A'}</p>
-                                                    </div>
-                                                )}
-                                                <p className="text-xs text-slate-400 mt-2">
-                                                    Joined: {new Date(user.createdAt).toLocaleDateString()}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!users.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No users found</p>
-                                )}
-                            </>
-                        )}
-                    </div>
-                </div>
-            )}
 
             {/* Tab Navigation */}
             <div className="border-b border-slate-200">
@@ -527,8 +360,17 @@ const AdminDashboard = () => {
                                 {status === 'loading' ? 'Loading...' : 'Refresh'}
                             </button>
                         </div>
+                        <div className="mb-4">
+                            <input
+                                type="text"
+                                placeholder="Search pending foods by name, description, or category..."
+                                value={pendingFoodsSearch}
+                                onChange={(e) => setPendingFoodsSearch(e.target.value)}
+                                className="w-full rounded-xl border border-slate-200 px-4 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                            />
+                        </div>
                         <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                            {pendingFoods.map((food) => (
+                            {filteredPendingFoods.map((food) => (
                                 <div key={food._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
                                     <div className="flex items-start justify-between">
                                         <div className="flex-1">
@@ -557,6 +399,9 @@ const AdminDashboard = () => {
                                     </div>
                                 </div>
                             ))}
+                            {!filteredPendingFoods.length && pendingFoods.length > 0 && (
+                                <p className="text-slate-500 text-sm text-center py-8">No foods match your search</p>
+                            )}
                             {!pendingFoods.length && (
                                 <p className="text-slate-500 text-sm text-center py-8">No pending foods 🎉</p>
                             )}
@@ -576,8 +421,17 @@ const AdminDashboard = () => {
                                 Refresh
                             </button>
                         </div>
+                        <div className="mb-4">
+                            <input
+                                type="text"
+                                placeholder="Search approved foods by name, description, or category..."
+                                value={approvedFoodsSearch}
+                                onChange={(e) => setApprovedFoodsSearch(e.target.value)}
+                                className="w-full rounded-xl border border-slate-200 px-4 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                            />
+                        </div>
                         <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                            {approvedFoods.map((food) => (
+                            {filteredApprovedFoods.map((food) => (
                                 <div key={food._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
                                     <div className="flex items-start justify-between">
                                         <div className="flex-1">
@@ -610,6 +464,9 @@ const AdminDashboard = () => {
                                     </div>
                                 </div>
                             ))}
+                            {!filteredApprovedFoods.length && approvedFoods.length > 0 && (
+                                <p className="text-slate-500 text-sm text-center py-8">No foods match your search</p>
+                            )}
                             {!approvedFoods.length && (
                                 <p className="text-slate-500 text-sm text-center py-8">No approved foods yet</p>
                             )}
@@ -999,6 +856,65 @@ const AdminDashboard = () => {
                             ))}
                             {!advisors.length && (
                                 <p className="text-slate-500 text-sm text-center py-8">No advisors found</p>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'manageUsers' && (
+                    <div>
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-semibold text-slate-800">All Users</h3>
+                            <button
+                                className="text-sm text-brand-dark hover:text-brand-primary"
+                                type="button"
+                                onClick={loadUsers}
+                            >
+                                Refresh
+                            </button>
+                        </div>
+                        <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                            {users.filter((user) => user.role !== 'admin').map((user) => (
+                                <div key={user._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
+                                    <div className="flex items-start justify-between">
+                                        <div className="flex-1">
+                                            <p className="font-semibold text-slate-800">{user.name}</p>
+                                            <p className="text-sm text-slate-500 mt-1">{user.email}</p>
+                                            <div className="flex gap-2 mt-2 text-xs">
+                                                <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                                                    {user.role?.toUpperCase() || 'USER'}
+                                                </span>
+                                                {user.onboardingCompleted && (
+                                                    <span className="px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                                                        Onboarding Complete
+                                                    </span>
+                                                )}
+                                            </div>
+                                            {user.onboarding && (
+                                                <div className="mt-2 text-xs text-slate-500">
+                                                    <p>Age: {user.onboarding.age || 'N/A'}</p>
+                                                    <p>Weight: {user.onboarding.weightKg || 'N/A'} kg</p>
+                                                    <p>Height: {user.onboarding.heightCm || 'N/A'} cm</p>
+                                                    <p>Goal: {user.onboarding.goal || 'N/A'}</p>
+                                                </div>
+                                            )}
+                                            <p className="text-xs text-slate-400 mt-2">
+                                                Joined: {new Date(user.createdAt).toLocaleDateString()}
+                                            </p>
+                                        </div>
+                                        <div className="flex gap-2 ml-4">
+                                            <button
+                                                onClick={() => handleDeleteUser(user._id)}
+                                                className="px-4 py-2 rounded-full bg-red-500 text-white text-sm font-semibold hover:bg-red-600 transition"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                            {!users.filter((user) => user.role !== 'admin').length && (
+                                <p className="text-slate-500 text-sm text-center py-8">No users found</p>
                             )}
                         </div>
                     </div>

@@ -13,6 +13,7 @@ import Foods from './pages/Foods.jsx';
 import FoodDetail from './pages/FoodDetail.jsx';
 import Meals from './pages/Meals.jsx';
 import AdvisorDirectory from './pages/AdvisorDirectory.jsx';
+import Shops from './pages/Shops.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 import BookingDetails from './pages/BookingDetails.jsx';
 import { fetchProfile } from './slices/authSlice.js';
@@ -97,6 +98,14 @@ function App() {
             element={
               <ProtectedRoute userOnly>
                 <AdvisorDirectory />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/shops"
+            element={
+              <ProtectedRoute userOnly>
+                <Shops />
               </ProtectedRoute>
             }
           />
