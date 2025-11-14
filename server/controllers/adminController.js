@@ -162,3 +162,20 @@ export const deleteAdmin = async (req, res) => {
   res.json({ message: 'Admin deleted successfully' });
 };
 
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  const user = await User.findById(id);
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+
+  // Prevent deleting admins through this endpoint
+  if (user.role === 'admin') {
+    return res.status(403).json({ message: 'Cannot delete admin users. Use admin delete endpoint instead.' });
+  }
+
+  await User.findByIdAndDelete(id);
+  res.json({ message: 'User deleted successfully' });
+};
+

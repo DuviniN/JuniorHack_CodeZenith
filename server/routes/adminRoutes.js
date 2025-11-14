@@ -13,6 +13,7 @@ import {
   updateAdmin,
   deleteAdmin,
   listAllUsers,
+  deleteUser,
   listAllAppointments
 } from '../controllers/adminController.js';
 import { adminOnly, authRequired } from '../middleware/authMiddleware.js';
@@ -33,6 +34,7 @@ router.get('/admins', listAdmins);
 router.put('/admins/:id', updateAdmin);
 router.delete('/admins/:id', deleteAdmin);
 router.get('/users', listAllUsers);
+router.delete('/users/:id', deleteUser);
 router.get('/appointments', listAllAppointments);
 router.get('/kpis', getAdminKpis);
 
