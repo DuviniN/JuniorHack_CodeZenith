@@ -83,9 +83,9 @@ const AdvisorDirectory = () => {
                 form.advisorId === advisor._id ? 'ring-4 ring-green-200' : ''
               }`}
             >
-              <div className="h-48 w-full overflow-hidden">
+              <div className="h-64 w-full overflow-hidden">
                 <img
-                  src={advisor.photoUrl || getAdvisorImage(advisor.name)}
+                  src={advisor.image || getAdvisorImage(advisor.name)}
                   alt={advisor.name}
                   className="h-full w-full object-cover"
                   loading="lazy"

@@ -13,6 +13,7 @@ const foodSchema = new mongoose.Schema(
     name: { type: String, required: true, unique: true },
     description: String,
     category: String,
+    image: String,
     portionGrams: { type: Number, required: true },
     calories: { type: Number, required: true },
     protein: { type: Number, required: true },

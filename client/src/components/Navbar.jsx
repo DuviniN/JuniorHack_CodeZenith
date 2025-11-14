@@ -34,7 +34,8 @@ const Navbar = () => {
         { to: '/dashboard', label: 'Dashboard' },
         { to: '/foods', label: 'Foods' },
         { to: '/meals', label: 'Meals' },
-        { to: '/advisors', label: 'Advisors' }
+        { to: '/advisors', label: 'Advisors' },
+        { to: '/chat', label: 'Chat' }
       ];
 
   return (

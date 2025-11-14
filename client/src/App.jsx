@@ -13,6 +13,7 @@ import Meals from './pages/Meals.jsx';
 import AdvisorDirectory from './pages/AdvisorDirectory.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 import BookingDetails from './pages/BookingDetails.jsx';
+import Chat from './pages/Chat.jsx';
 import { fetchProfile } from './slices/authSlice.js';
 
 function App() {
@@ -79,6 +80,14 @@ function App() {
             element={
               <ProtectedRoute userOnly>
                 <Meals />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/chat"
+            element={
+              <ProtectedRoute userOnly>
+                <Chat />
               </ProtectedRoute>
             }
           />

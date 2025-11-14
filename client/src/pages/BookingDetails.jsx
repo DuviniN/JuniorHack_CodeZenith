@@ -98,9 +98,9 @@ const BookingDetails = () => {
             </span>
           </div>
 
-          <div className="h-64 w-full overflow-hidden rounded-2xl">
+          <div className="h-80 w-full overflow-hidden rounded-2xl">
             <img
-              src={advisor.photoUrl || getAdvisorImage(advisor.name)}
+              src={advisor.image || getAdvisorImage(advisor.name)}
               alt={advisor.name}
               className="h-full w-full object-cover"
             />

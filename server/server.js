@@ -10,6 +10,7 @@ import mealRoutes from './routes/mealRoutes.js';
 import advisorRoutes from './routes/advisorRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import aiRoutes from './routes/aiRoutes.js';
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.use('/api/meals', mealRoutes);
 app.use('/api/advisors', advisorRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/ai', aiRoutes);
 
 app.use((err, req, res, _next) => {
   console.error(err);

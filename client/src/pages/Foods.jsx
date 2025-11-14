@@ -58,7 +58,7 @@ const Foods = () => {
             <div key={food._id || food.name} className="card space-y-2 overflow-hidden p-0">
               <div className="h-48 w-full overflow-hidden">
                 <img
-                  src={getFoodImage(food.name)}
+                  src={food.image || getFoodImage(food.name)}
                   alt={food.name}
                   className="h-full w-full object-cover"
                   loading="lazy"

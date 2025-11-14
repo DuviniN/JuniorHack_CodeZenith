@@ -31,7 +31,7 @@ const FoodDetail = () => {
       <div className="card p-0 overflow-hidden">
         <div className="h-64 w-full">
           <img
-            src={getFoodImage(selected.name)}
+            src={selected.image || getFoodImage(selected.name)}
             alt={selected.name}
             className="h-full w-full object-cover"
             loading="lazy"

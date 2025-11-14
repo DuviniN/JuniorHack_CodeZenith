@@ -4,6 +4,7 @@ const advisorSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     specialty: String,
+    image: String,
     experienceYears: Number,
     city: String,
     languages: [String],
