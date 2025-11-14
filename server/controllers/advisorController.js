@@ -64,6 +64,9 @@ export const bookAppointment = async (req, res) => {
     notes
   });
 
+  // Populate advisor details before sending response
+  await appointment.populate('advisor');
+
   res.status(201).json({ appointment });
 };
 
@@ -72,6 +75,18 @@ export const listAppointments = async (req, res) => {
     .populate('advisor')
     .sort({ scheduledFor: 1 });
   res.json({ appointments });
+};
+
+export const getAppointment = async (req, res) => {
+  const { id } = req.params;
+  const appointment = await Appointment.findOne({ _id: id, user: req.user._id })
+    .populate('advisor');
+  
+  if (!appointment) {
+    return res.status(404).json({ message: 'Appointment not found' });
+  }
+  
+  res.json({ appointment });
 };
 
 export const listHealthyShops = async (_req, res) => {

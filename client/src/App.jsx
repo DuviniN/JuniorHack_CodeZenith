@@ -12,6 +12,7 @@ import FoodDetail from './pages/FoodDetail.jsx';
 import Meals from './pages/Meals.jsx';
 import AdvisorDirectory from './pages/AdvisorDirectory.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
+import BookingDetails from './pages/BookingDetails.jsx';
 import { fetchProfile } from './slices/authSlice.js';
 
 function App() {
@@ -86,6 +87,14 @@ function App() {
             element={
               <ProtectedRoute userOnly>
                 <AdvisorDirectory />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/booking/:id"
+            element={
+              <ProtectedRoute userOnly>
+                <BookingDetails />
               </ProtectedRoute>
             }
           />
