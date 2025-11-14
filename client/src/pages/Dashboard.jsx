@@ -29,27 +29,65 @@ const Dashboard = () => {
 
     return (
         <div className="space-y-6">
-            <section className="card bg-gradient-to-r from-teal-50 to-white">
-                <p className="text-sm text-brand-dark uppercase tracking-wide">Nutrition Advisor</p>
-                <h1 className="text-3xl font-semibold text-slate-900 mt-2">
-                    Ayubowan {user?.name?.split(' ')[0] || 'friend'} 👋
-                </h1>
-                <p className="text-slate-600 mt-2 max-w-2xl">
-                    Keep your Sri Lankan meals balanced with analytics, cultural swaps, and advisor support.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                    <Link
-                        to="/meals"
-                        className="px-4 py-2 rounded-full bg-brand-primary text-white text-sm font-semibold hover:bg-brand-dark"
-                    >
-                        Log a meal
-                    </Link>
-                    <Link
-                        to="/foods"
-                        className="px-4 py-2 rounded-full border border-brand-primary text-brand-primary text-sm font-semibold hover:bg-brand-primary hover:text-white"
-                    >
-                        Browse foods
-                    </Link>
+            {/* Creative Header Section */}
+            <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-primary via-brand-primary/90 to-brand-dark text-white p-8 md:p-12 shadow-2xl">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
+                
+                <div className="relative z-10">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="h-12 w-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center font-bold text-xl">
+                            NL
+                        </div>
+                        <p className="text-sm text-white/80 uppercase tracking-wider font-medium">NutriLanka</p>
+                    </div>
+                    
+                    <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                        Ayubowan, {user?.name?.split(' ')[0] || 'friend'}! 👋
+                    </h1>
+                    
+                    <p className="text-lg text-white/90 mb-6 max-w-2xl leading-relaxed">
+                        Transform your health journey with <span className="font-semibold">culturally-aware nutrition</span>. 
+                        Discover authentic Sri Lankan meals, track your progress, and connect with expert advisors.
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-3">
+                        <Link
+                            to="/meals"
+                            className="px-6 py-3 rounded-full bg-white text-brand-primary text-sm font-semibold hover:bg-white/90 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+                        >
+                            🍽️ Log a Meal
+                        </Link>
+                        <Link
+                            to="/foods"
+                            className="px-6 py-3 rounded-full border-2 border-white/30 text-white text-sm font-semibold hover:bg-white/10 backdrop-blur-sm transition-all"
+                        >
+                            🔍 Explore Foods
+                        </Link>
+                        <Link
+                            to="/advisors"
+                            className="px-6 py-3 rounded-full border-2 border-white/30 text-white text-sm font-semibold hover:bg-white/10 backdrop-blur-sm transition-all"
+                        >
+                            👨‍⚕️ Find Advisor
+                        </Link>
+                    </div>
+                    
+                    {/* Quick Stats */}
+                    <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/20">
+                        <div>
+                            <p className="text-2xl font-bold">{summary?.totalCalories || 0}</p>
+                            <p className="text-xs text-white/70 uppercase tracking-wide">Weekly Calories</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl font-bold">{meals.length || 0}</p>
+                            <p className="text-xs text-white/70 uppercase tracking-wide">Meals Logged</p>
+                        </div>
+                        <div>
+                            <p className="text-2xl font-bold">{summary?.swapsAccepted || 0}</p>
+                            <p className="text-xs text-white/70 uppercase tracking-wide">Smart Swaps</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   fetchAdvisors,
   fetchAppointments,
@@ -10,6 +11,7 @@ import { getAdvisorImage } from '../utils/imageHelpers.js';
 
 const AdvisorDirectory = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { list, shops, appointments } = useSelector((state) => state.advisors);
   const [form, setForm] = useState({ advisorId: '', scheduledFor: '', notes: '' });
 
@@ -22,7 +24,11 @@ const AdvisorDirectory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.advisorId || !form.scheduledFor) return;
-    await dispatch(bookAppointment(form));
+    const result = await dispatch(bookAppointment(form));
+    if (result.type === 'advisors/book/fulfilled') {
+      // Navigate to booking details page
+      navigate(`/booking/${result.payload._id}`);
+    }
     setForm({ advisorId: '', scheduledFor: '', notes: '' });
   };
 
@@ -101,7 +107,7 @@ const AdvisorDirectory = () => {
                 <p className="text-sm text-slate-600">{advisor.bio}</p>
                 <div className="flex items-center justify-between text-sm text-green-700 font-semibold">
                   <span>Fee ~ LKR {advisor.feeLkr || 3500}</span>
-                  <span>Book session →</span>
+                  <span className="cursor-pointer">Book session →</span>
                 </div>
               </div>
             </button>
@@ -162,7 +168,11 @@ const AdvisorDirectory = () => {
           <h3 className="text-lg font-semibold text-slate-800 mb-3">Upcoming appointments</h3>
           <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
             {appointments.map((appointment) => (
-              <div key={appointment._id} className="border border-slate-100 rounded-xl p-3">
+              <button
+                key={appointment._id}
+                onClick={() => navigate(`/booking/${appointment._id}`)}
+                className="w-full text-left border border-slate-100 rounded-xl p-3 hover:border-brand-primary hover:shadow-md transition"
+              >
                 <p className="text-slate-800 font-semibold">
                   {appointment.advisor?.name || 'Advisor TBD'}
                 </p>
@@ -170,7 +180,8 @@ const AdvisorDirectory = () => {
                   {new Date(appointment.scheduledFor).toLocaleString()}
                 </p>
                 <p className="text-xs text-green-600 uppercase">{appointment.status}</p>
-              </div>
+                <p className="text-xs text-brand-primary mt-1">View details →</p>
+              </button>
             ))}
             {!appointments.length && (
               <p className="text-slate-500 text-sm">No appointments booked yet.</p>
