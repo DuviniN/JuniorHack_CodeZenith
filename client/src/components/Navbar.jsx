@@ -34,7 +34,8 @@ const Navbar = () => {
         { to: '/dashboard', label: 'Dashboard' },
         { to: '/foods', label: 'Foods' },
         { to: '/meals', label: 'Meals' },
-        { to: '/advisors', label: 'Advisors' }
+        { to: '/advisors', label: 'Advisors' },
+        { to: '/profile', label: 'Profile' }
       ];
 
   return (
@@ -45,7 +46,7 @@ const Navbar = () => {
             NA
           </div>
           <div>
-            <p className="text-slate-900 font-semibold">Nutrition Advisor</p>
+            <p className="text-slate-900 font-semibold">NutriLanka</p>
             <p className="text-xs text-slate-500">Sri Lankan Diets</p>
           </div>
         </div>

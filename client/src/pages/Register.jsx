@@ -22,7 +22,7 @@ const Register = () => {
 
   return (
     <div className="max-w-md mx-auto card mt-10">
-      <h2 className="text-2xl font-semibold text-slate-800 mb-2">Join Nutrition Advisor</h2>
+      <h2 className="text-2xl font-semibold text-slate-800 mb-2">Join NutriLanka</h2>
       <p className="text-slate-500 mb-6">Sri Lankan meal intelligence guided by local advisors.</p>
       {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
       <form className="space-y-4" onSubmit={handleSubmit}>

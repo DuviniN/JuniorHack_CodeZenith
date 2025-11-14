@@ -29,7 +29,7 @@ app.use(express.json({ limit: '1mb' }));
 app.use(morgan('dev'));
 
 app.get('/api/health', (_, res) => {
-  res.json({ status: 'ok', message: 'Nutrition Advisor API running' });
+  res.json({ status: 'ok', message: 'NutriLanka API running' });
 });
 
 app.use('/api/auth', authRoutes);
@@ -54,7 +54,7 @@ const startServer = async () => {
   try {
     await connectDB();
     app.listen(PORT, () => {
-      console.log(`Nutrition Advisor API ready on port ${PORT}`);
+      console.log(`NutriLanka API ready on port ${PORT}`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
