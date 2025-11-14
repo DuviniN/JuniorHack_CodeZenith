@@ -1,4 +1,4 @@
-# Nutrition Advisor — Sri Lankan Diets
+# NutriLanka — Sri Lankan Diets
 
 Hackathon-ready MERN (MongoDB, Express, React, Node) platform for culturally relevant nutrition coaching built as a monorepo with `server` (API) and `client` (Vite + React + Tailwind).
 
@@ -83,5 +83,5 @@ CLIENT_URL=http://localhost:5173
 6. **Healthy shops** – Scroll to shop list and open map links for Sri Lankan healthy grocers.
 7. **Admin approvals** – Login as admin (first user), visit `/admin`, approve foods, add advisors.
 
-Enjoy shipping Nutrition Advisor!  
+Enjoy shipping NutriLanka!  
 

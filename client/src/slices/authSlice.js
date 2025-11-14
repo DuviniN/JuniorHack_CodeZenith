@@ -54,6 +54,18 @@ export const submitOnboarding = createAsyncThunk(
   }
 );
 
+export const updateProfile = createAsyncThunk(
+  'auth/updateProfile',
+  async (payload, thunkAPI) => {
+    try {
+      const { data } = await api.put('/auth/profile', payload);
+      return data.user;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(handleError(error));
+    }
+  }
+);
+
 const initialState = {
   user: null,
   token: tokenFromStorage,
@@ -117,6 +129,18 @@ const authSlice = createSlice({
       })
       .addCase(submitOnboarding.fulfilled, (state, action) => {
         state.user = action.payload;
+      })
+      .addCase(updateProfile.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.user = action.payload;
+      })
+      .addCase(updateProfile.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
       });
   }
 });
