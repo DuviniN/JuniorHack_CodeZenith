@@ -291,7 +291,7 @@ const AdminDashboard = () => {
             <div className="card">
                 <h2 className="text-2xl font-semibold text-slate-900">Admin dashboard</h2>
                 <p className="text-slate-500">
-                    Approve user foods, onboard advisors, and monitor Nutrition Advisor KPIs.
+                    Approve user foods, onboard advisors, and monitor NutriLanka KPIs.
                 </p>
             </div>
 
@@ -749,7 +749,7 @@ const AdminDashboard = () => {
                     <form className="space-y-4 max-w-md" onSubmit={handleAdvisorSubmit}>
                         <div>
                             <h3 className="text-lg font-semibold text-slate-800 mb-1">Add advisor</h3>
-                            <p className="text-xs text-slate-500">Create a new nutrition advisor profile.</p>
+                            <p className="text-xs text-slate-500">Create a new advisor profile.</p>
                         </div>
                         {['name', 'specialty', 'city', 'languages'].map((field) => (
                             <div key={field}>

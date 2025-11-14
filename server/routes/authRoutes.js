@@ -3,7 +3,8 @@ import {
   registerUser,
   loginUser,
   getProfile,
-  updateOnboarding
+  updateOnboarding,
+  updateProfile
 } from '../controllers/authController.js';
 import { authRequired } from '../middleware/authMiddleware.js';
 
@@ -13,6 +14,7 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.get('/me', authRequired, getProfile);
 router.put('/onboarding', authRequired, updateOnboarding);
+router.put('/profile', authRequired, updateProfile);
 
 export default router;
 
