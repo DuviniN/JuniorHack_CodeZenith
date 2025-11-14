@@ -1,15 +1,16 @@
 {
   "name": "nutrition-advisor-server",
   "version": "1.0.0",
-  "description": "Nutrition Advisor — Sri Lankan Diets API",
+  "description": "NutriLanka — Sri Lankan Diets API",
   "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "seed": "node scripts/seedFoods.js"
+    "seed": "node scripts/seedFoods.js",
+    "seed:meal-plans": "node scripts/seedMealPlans.js"
   },
-  "author": "Nutrition Advisor",
+  "author": "NutriLanka",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.3",

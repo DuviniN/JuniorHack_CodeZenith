@@ -34,30 +34,30 @@ const Dashboard = () => {
                 {/* Decorative Elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2"></div>
-                
-                <div className="relative z-10">
+
+                <div className="relative z-0">
                     <div className="flex items-center gap-2 mb-4">
                         <div className="h-12 w-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center font-bold text-xl">
                             NL
                         </div>
                         <p className="text-sm text-white/80 uppercase tracking-wider font-medium">NutriLanka</p>
                     </div>
-                    
+
                     <h1 className="text-4xl md:text-5xl font-bold mb-3">
                         Ayubowan, {user?.name?.split(' ')[0] || 'friend'}! 👋
                     </h1>
-                    
+
                     <p className="text-lg text-white/90 mb-6 max-w-2xl leading-relaxed">
-                        Transform your health journey with <span className="font-semibold">culturally-aware nutrition</span>. 
+                        Transform your health journey with <span className="font-semibold">culturally-aware nutrition</span>.
                         Discover authentic Sri Lankan meals, track your progress, and connect with expert advisors.
                     </p>
-                    
+
                     <div className="flex flex-wrap gap-3">
                         <Link
                             to="/meals"
                             className="px-6 py-3 rounded-full bg-white text-brand-primary text-sm font-semibold hover:bg-white/90 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
                         >
-                            🍽️ Log a Meal
+                            Log a Meal
                         </Link>
                         <Link
                             to="/foods"
@@ -72,7 +72,7 @@ const Dashboard = () => {
                             👨‍⚕️ Find Advisor
                         </Link>
                     </div>
-                    
+
                     {/* Quick Stats */}
                     <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-white/20">
                         <div>

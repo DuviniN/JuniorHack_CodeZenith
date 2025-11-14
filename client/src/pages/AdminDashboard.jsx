@@ -13,7 +13,10 @@ const AdminDashboard = () => {
     const [editingAdvisor, setEditingAdvisor] = useState(null);
     const [users, setUsers] = useState([]);
     const [appointments, setAppointments] = useState([]);
-    const [kpiDetailView, setKpiDetailView] = useState(null); // 'pendingFoods', 'advisors', 'appointments', 'users'
+    const [shops, setShops] = useState([]);
+    const [editingShop, setEditingShop] = useState(null);
+    const [pendingFoodsSearch, setPendingFoodsSearch] = useState('');
+    const [approvedFoodsSearch, setApprovedFoodsSearch] = useState('');
     const [form, setForm] = useState({
         name: '',
         specialty: '',
@@ -44,6 +47,26 @@ const AdminDashboard = () => {
         name: '',
         email: '',
         password: ''
+    });
+    const [shopForm, setShopForm] = useState({
+        name: '',
+        city: '',
+        websiteUrl: '',
+        mapUrl: '',
+        specialties: '',
+        description: '',
+        phone: '',
+        email: ''
+    });
+    const [editShopForm, setEditShopForm] = useState({
+        name: '',
+        city: '',
+        websiteUrl: '',
+        mapUrl: '',
+        specialties: '',
+        description: '',
+        phone: '',
+        email: ''
     });
 
     const loadData = async () => {
@@ -92,6 +115,16 @@ const AdminDashboard = () => {
         }
     };
 
+    const loadShops = async () => {
+        try {
+            const res = await api.get('/admin/shops');
+            setShops(res.data.shops);
+        } catch (error) {
+            console.error(error);
+            alert('Failed to load shops');
+        }
+    };
+
     const loadAppointments = async () => {
         try {
             const res = await api.get('/admin/appointments');
@@ -112,22 +145,107 @@ const AdminDashboard = () => {
         }
     };
 
-    const handleKpiClick = (key) => {
-        if (kpiDetailView === key) {
-            setKpiDetailView(null);
-        } else {
-            setKpiDetailView(key);
-            if (key === 'advisors') {
-                loadAdvisors();
-            } else if (key === 'users') {
-                loadUsers();
-            } else if (key === 'appointments') {
-                loadAppointments();
-            } else if (key === 'pendingFoods') {
-                loadData();
-            }
+    const handleDeleteUser = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+            return;
+        }
+        try {
+            await api.delete(`/admin/users/${id}`);
+            alert('User deleted successfully!');
+            loadUsers();
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to delete user');
         }
     };
+
+    const handleShopSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await api.post('/admin/shops', {
+                ...shopForm,
+                specialties: shopForm.specialties ? shopForm.specialties.split(',').map((item) => item.trim()) : []
+            });
+            setShopForm({
+                name: '',
+                city: '',
+                websiteUrl: '',
+                mapUrl: '',
+                specialties: '',
+                description: '',
+                phone: '',
+                email: ''
+            });
+            alert('Shop created successfully!');
+            loadShops();
+            setActiveTab('manageShops');
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to create shop');
+        }
+    };
+
+    const handleEditShop = (shop) => {
+        setEditingShop(shop._id);
+        setEditShopForm({
+            name: shop.name || '',
+            city: shop.city || '',
+            websiteUrl: shop.websiteUrl || '',
+            mapUrl: shop.mapUrl || '',
+            specialties: Array.isArray(shop.specialties) ? shop.specialties.join(', ') : shop.specialties || '',
+            description: shop.description || '',
+            phone: shop.phone || '',
+            email: shop.email || ''
+        });
+    };
+
+    const handleUpdateShop = async (e) => {
+        e.preventDefault();
+        try {
+            await api.put(`/admin/shops/${editingShop}`, {
+                ...editShopForm,
+                specialties: editShopForm.specialties ? editShopForm.specialties.split(',').map((item) => item.trim()) : []
+            });
+            setEditingShop(null);
+            setEditShopForm({
+                name: '',
+                city: '',
+                websiteUrl: '',
+                mapUrl: '',
+                specialties: '',
+                description: '',
+                phone: '',
+                email: ''
+            });
+            alert('Shop updated successfully!');
+            loadShops();
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to update shop');
+        }
+    };
+
+    const handleDeleteShop = async (id) => {
+        if (!window.confirm('Are you sure you want to delete this shop?')) {
+            return;
+        }
+        try {
+            await api.delete(`/admin/shops/${id}`);
+            alert('Shop deleted successfully!');
+            loadShops();
+        } catch (error) {
+            alert(error.response?.data?.message || 'Failed to delete shop');
+        }
+    };
+
+    const filteredPendingFoods = pendingFoods.filter((food) =>
+        food.name.toLowerCase().includes(pendingFoodsSearch.toLowerCase()) ||
+        (food.description && food.description.toLowerCase().includes(pendingFoodsSearch.toLowerCase())) ||
+        (food.category && food.category.toLowerCase().includes(pendingFoodsSearch.toLowerCase()))
+    );
+
+    const filteredApprovedFoods = approvedFoods.filter((food) =>
+        food.name.toLowerCase().includes(approvedFoodsSearch.toLowerCase()) ||
+        (food.description && food.description.toLowerCase().includes(approvedFoodsSearch.toLowerCase())) ||
+        (food.category && food.category.toLowerCase().includes(approvedFoodsSearch.toLowerCase()))
+    );
 
     useEffect(() => {
         loadData();
@@ -144,6 +262,12 @@ const AdminDashboard = () => {
         }
         if (activeTab === 'approvedFoods') {
             loadApprovedFoods();
+        }
+        if (activeTab === 'manageUsers') {
+            loadUsers();
+        }
+        if (activeTab === 'shop' || activeTab === 'manageShops') {
+            loadShops();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTab]);
@@ -283,7 +407,10 @@ const AdminDashboard = () => {
         { id: 'admin', label: 'Add Admin' },
         { id: 'manageAdmins', label: 'Manage Admins' },
         { id: 'advisor', label: 'Add Advisor' },
-        { id: 'manageAdvisors', label: 'Manage Advisors' }
+        { id: 'manageAdvisors', label: 'Manage Advisors' },
+        { id: 'manageUsers', label: 'Manage Users' },
+        { id: 'shop', label: 'Add Shop' },
+        { id: 'manageShops', label: 'Manage Shops' }
     ];
 
     return (
@@ -291,207 +418,27 @@ const AdminDashboard = () => {
             <div className="card">
                 <h2 className="text-2xl font-semibold text-slate-900">Admin dashboard</h2>
                 <p className="text-slate-500">
-                    Approve user foods, onboard advisors, and monitor Nutrition Advisor KPIs.
+                    Approve user foods, onboard advisors, and monitor NutriLanka KPIs.
                 </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                     { key: 'pendingFoods', label: 'Pending Foods' },
-                    { key: 'advisorCount', label: 'Advisors', detailKey: 'advisors' },
-                    { key: 'appointmentCount', label: 'Appointments', detailKey: 'appointments' },
-                    { key: 'userCount', label: 'Users', detailKey: 'users' }
+                    { key: 'advisorCount', label: 'Advisors' },
+                    { key: 'appointmentCount', label: 'Appointments' },
+                    { key: 'userCount', label: 'Users' }
                 ].map((item) => (
-                    <button
+                    <div
                         key={item.key}
-                        onClick={() => handleKpiClick(item.detailKey || item.key)}
-                        className={`card text-center hover:shadow-lg transition cursor-pointer ${
-                            kpiDetailView === (item.detailKey || item.key) ? 'ring-2 ring-brand-primary' : ''
-                        }`}
+                        className="card text-center"
                     >
                         <p className="text-sm text-slate-500">{item.label}</p>
                         <p className="text-2xl font-semibold text-slate-900">{kpis?.[item.key] ?? '—'}</p>
-                        <p className="text-xs text-brand-primary mt-1">
-                            {kpiDetailView === (item.detailKey || item.key) ? 'Hide list' : 'View list'}
-                        </p>
-                    </button>
+                    </div>
                 ))}
             </div>
 
-            {/* KPI Detail Lists */}
-            {kpiDetailView && (
-                <div className="card">
-                    <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-lg font-semibold text-slate-800">
-                            {kpiDetailView === 'pendingFoods' && 'Pending Foods'}
-                            {kpiDetailView === 'advisors' && 'All Advisors'}
-                            {kpiDetailView === 'appointments' && 'All Appointments'}
-                            {kpiDetailView === 'users' && 'All Users'}
-                        </h3>
-                        <button
-                            onClick={() => setKpiDetailView(null)}
-                            className="text-sm text-slate-500 hover:text-slate-700"
-                        >
-                            Close
-                        </button>
-                    </div>
-                    <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                        {kpiDetailView === 'pendingFoods' && (
-                            <>
-                                {pendingFoods.map((food) => (
-                                    <div key={food._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">{food.name}</p>
-                                                <p className="text-sm text-slate-500 mt-1">{food.description}</p>
-                                                <div className="flex gap-2 mt-2 text-xs text-slate-600">
-                                                    <span>{food.calories} kcal</span>
-                                                    <span>•</span>
-                                                    <span>{food.category}</span>
-                                                    <span>•</span>
-                                                    <span className={`px-2 py-0.5 rounded-full ${
-                                                        food.rating === 'good' ? 'bg-green-100 text-green-700' :
-                                                        food.rating === 'moderate' ? 'bg-amber-100 text-amber-700' :
-                                                        'bg-rose-100 text-rose-700'
-                                                    }`}>
-                                                        {food.rating}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <button
-                                                onClick={() => approveFood(food._id)}
-                                                className="ml-4 px-4 py-2 rounded-full bg-brand-primary text-white text-sm font-semibold hover:bg-brand-dark transition"
-                                            >
-                                                Approve
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!pendingFoods.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No pending foods 🎉</p>
-                                )}
-                            </>
-                        )}
-
-                        {kpiDetailView === 'advisors' && (
-                            <>
-                                {advisors.map((advisor) => (
-                                    <div key={advisor._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">{advisor.name}</p>
-                                                <p className="text-sm text-slate-500 mt-1">
-                                                    {advisor.specialty && <span>{advisor.specialty}</span>}
-                                                    {advisor.specialty && advisor.city && <span> • </span>}
-                                                    {advisor.city && <span>{advisor.city}</span>}
-                                                </p>
-                                                {advisor.languages && advisor.languages.length > 0 && (
-                                                    <p className="text-sm text-slate-500 mt-1">
-                                                        Languages: {Array.isArray(advisor.languages) ? advisor.languages.join(', ') : advisor.languages}
-                                                    </p>
-                                                )}
-                                                <div className="flex gap-4 mt-2 text-xs text-slate-500">
-                                                    {advisor.feeLkr && <span>Fee: LKR {advisor.feeLkr}</span>}
-                                                    {advisor.experienceYears && <span>Experience: {advisor.experienceYears} years</span>}
-                                                    {advisor.rating && <span>Rating: {advisor.rating} ★</span>}
-                                                </div>
-                                                {advisor.bio && (
-                                                    <p className="text-sm text-slate-600 mt-2">{advisor.bio}</p>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!advisors.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No advisors found</p>
-                                )}
-                            </>
-                        )}
-
-                        {kpiDetailView === 'appointments' && (
-                            <>
-                                {appointments.map((appointment) => (
-                                    <div key={appointment._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">
-                                                    {appointment.advisor?.name || 'Advisor TBD'}
-                                                </p>
-                                                <p className="text-sm text-slate-500 mt-1">
-                                                    User: {appointment.user?.name || 'Unknown'} ({appointment.user?.email || 'N/A'})
-                                                </p>
-                                                <p className="text-sm text-slate-600 mt-1">
-                                                    Scheduled: {new Date(appointment.scheduledFor).toLocaleString()}
-                                                </p>
-                                                <div className="flex gap-2 mt-2 text-xs">
-                                                    <span className={`px-2 py-0.5 rounded-full ${
-                                                        appointment.status === 'confirmed' ? 'bg-green-100 text-green-700' :
-                                                        appointment.status === 'pending' ? 'bg-amber-100 text-amber-700' :
-                                                        appointment.status === 'completed' ? 'bg-blue-100 text-blue-700' :
-                                                        'bg-red-100 text-red-700'
-                                                    }`}>
-                                                        {appointment.status?.toUpperCase()}
-                                                    </span>
-                                                    {appointment.notes && (
-                                                        <span className="text-slate-500">Notes: {appointment.notes}</span>
-                                                    )}
-                                                </div>
-                                                <p className="text-xs text-slate-400 mt-2">
-                                                    Created: {new Date(appointment.createdAt).toLocaleDateString()}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!appointments.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No appointments found</p>
-                                )}
-                            </>
-                        )}
-
-                        {kpiDetailView === 'users' && (
-                            <>
-                                {users.map((user) => (
-                                    <div key={user._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
-                                        <div className="flex items-start justify-between">
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-slate-800">{user.name}</p>
-                                                <p className="text-sm text-slate-500 mt-1">{user.email}</p>
-                                                <div className="flex gap-2 mt-2 text-xs">
-                                                    <span className={`px-2 py-0.5 rounded-full ${
-                                                        user.role === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
-                                                    }`}>
-                                                        {user.role?.toUpperCase()}
-                                                    </span>
-                                                    {user.onboardingCompleted && (
-                                                        <span className="px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-                                                            Onboarding Complete
-                                                        </span>
-                                                    )}
-                                                </div>
-                                                {user.onboarding && (
-                                                    <div className="mt-2 text-xs text-slate-500">
-                                                        <p>Age: {user.onboarding.age || 'N/A'}</p>
-                                                        <p>Weight: {user.onboarding.weightKg || 'N/A'} kg</p>
-                                                        <p>Height: {user.onboarding.heightCm || 'N/A'} cm</p>
-                                                        <p>Goal: {user.onboarding.goal || 'N/A'}</p>
-                                                    </div>
-                                                )}
-                                                <p className="text-xs text-slate-400 mt-2">
-                                                    Joined: {new Date(user.createdAt).toLocaleDateString()}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                                {!users.length && (
-                                    <p className="text-slate-500 text-sm text-center py-8">No users found</p>
-                                )}
-                            </>
-                        )}
-                    </div>
-                </div>
-            )}
 
             {/* Tab Navigation */}
             <div className="border-b border-slate-200">
@@ -527,8 +474,17 @@ const AdminDashboard = () => {
                                 {status === 'loading' ? 'Loading...' : 'Refresh'}
                             </button>
                         </div>
+                        <div className="mb-4">
+                            <input
+                                type="text"
+                                placeholder="Search pending foods by name, description, or category..."
+                                value={pendingFoodsSearch}
+                                onChange={(e) => setPendingFoodsSearch(e.target.value)}
+                                className="w-full rounded-xl border border-slate-200 px-4 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                            />
+                        </div>
                         <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                            {pendingFoods.map((food) => (
+                            {filteredPendingFoods.map((food) => (
                                 <div key={food._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
                                     <div className="flex items-start justify-between">
                                         <div className="flex-1">
@@ -557,6 +513,9 @@ const AdminDashboard = () => {
                                     </div>
                                 </div>
                             ))}
+                            {!filteredPendingFoods.length && pendingFoods.length > 0 && (
+                                <p className="text-slate-500 text-sm text-center py-8">No foods match your search</p>
+                            )}
                             {!pendingFoods.length && (
                                 <p className="text-slate-500 text-sm text-center py-8">No pending foods 🎉</p>
                             )}
@@ -576,8 +535,17 @@ const AdminDashboard = () => {
                                 Refresh
                             </button>
                         </div>
+                        <div className="mb-4">
+                            <input
+                                type="text"
+                                placeholder="Search approved foods by name, description, or category..."
+                                value={approvedFoodsSearch}
+                                onChange={(e) => setApprovedFoodsSearch(e.target.value)}
+                                className="w-full rounded-xl border border-slate-200 px-4 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                            />
+                        </div>
                         <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                            {approvedFoods.map((food) => (
+                            {filteredApprovedFoods.map((food) => (
                                 <div key={food._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
                                     <div className="flex items-start justify-between">
                                         <div className="flex-1">
@@ -610,6 +578,9 @@ const AdminDashboard = () => {
                                     </div>
                                 </div>
                             ))}
+                            {!filteredApprovedFoods.length && approvedFoods.length > 0 && (
+                                <p className="text-slate-500 text-sm text-center py-8">No foods match your search</p>
+                            )}
                             {!approvedFoods.length && (
                                 <p className="text-slate-500 text-sm text-center py-8">No approved foods yet</p>
                             )}
@@ -749,7 +720,7 @@ const AdminDashboard = () => {
                     <form className="space-y-4 max-w-md" onSubmit={handleAdvisorSubmit}>
                         <div>
                             <h3 className="text-lg font-semibold text-slate-800 mb-1">Add advisor</h3>
-                            <p className="text-xs text-slate-500">Create a new nutrition advisor profile.</p>
+                            <p className="text-xs text-slate-500">Create a new advisor profile.</p>
                         </div>
                         {['name', 'specialty', 'city', 'languages'].map((field) => (
                             <div key={field}>
@@ -999,6 +970,362 @@ const AdminDashboard = () => {
                             ))}
                             {!advisors.length && (
                                 <p className="text-slate-500 text-sm text-center py-8">No advisors found</p>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'manageUsers' && (
+                    <div>
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-semibold text-slate-800">All Users</h3>
+                            <button
+                                className="text-sm text-brand-dark hover:text-brand-primary"
+                                type="button"
+                                onClick={loadUsers}
+                            >
+                                Refresh
+                            </button>
+                        </div>
+                        <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                            {users.filter((user) => user.role !== 'admin').map((user) => (
+                                <div key={user._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
+                                    <div className="flex items-start justify-between">
+                                        <div className="flex-1">
+                                            <p className="font-semibold text-slate-800">{user.name}</p>
+                                            <p className="text-sm text-slate-500 mt-1">{user.email}</p>
+                                            <div className="flex gap-2 mt-2 text-xs">
+                                                <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">
+                                                    {user.role?.toUpperCase() || 'USER'}
+                                                </span>
+                                                {user.onboardingCompleted && (
+                                                    <span className="px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                                                        Onboarding Complete
+                                                    </span>
+                                                )}
+                                            </div>
+                                            {user.onboarding && (
+                                                <div className="mt-2 text-xs text-slate-500">
+                                                    <p>Age: {user.onboarding.age || 'N/A'}</p>
+                                                    <p>Weight: {user.onboarding.weightKg || 'N/A'} kg</p>
+                                                    <p>Height: {user.onboarding.heightCm || 'N/A'} cm</p>
+                                                    <p>Goal: {user.onboarding.goal || 'N/A'}</p>
+                                                </div>
+                                            )}
+                                            <p className="text-xs text-slate-400 mt-2">
+                                                Joined: {new Date(user.createdAt).toLocaleDateString()}
+                                            </p>
+                                        </div>
+                                        <div className="flex gap-2 ml-4">
+                                            <button
+                                                onClick={() => handleDeleteUser(user._id)}
+                                                className="px-4 py-2 rounded-full bg-red-500 text-white text-sm font-semibold hover:bg-red-600 transition"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                            {!users.filter((user) => user.role !== 'admin').length && (
+                                <p className="text-slate-500 text-sm text-center py-8">No users found</p>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'shop' && (
+                    <form className="space-y-4 max-w-md" onSubmit={handleShopSubmit}>
+                        <div>
+                            <h3 className="text-lg font-semibold text-slate-800 mb-1">Add shop</h3>
+                            <p className="text-xs text-slate-500">Create a new shop profile.</p>
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Shop Name *</label>
+                            <input
+                                type="text"
+                                value={shopForm.name}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, name: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                required
+                                placeholder="Enter shop name"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">City *</label>
+                            <input
+                                type="text"
+                                value={shopForm.city}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, city: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                required
+                                placeholder="Enter city"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Website URL *</label>
+                            <input
+                                type="url"
+                                value={shopForm.websiteUrl}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, websiteUrl: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                required
+                                placeholder="https://example.com"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Map URL (Optional)</label>
+                            <input
+                                type="url"
+                                value={shopForm.mapUrl}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, mapUrl: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="https://maps.app.goo.gl/..."
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Specialties (Comma separated)</label>
+                            <input
+                                type="text"
+                                value={shopForm.specialties}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, specialties: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="e.g., organic produce, healthy groceries"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Description (Optional)</label>
+                            <textarea
+                                value={shopForm.description}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, description: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                rows="3"
+                                placeholder="Enter shop description..."
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Phone (Optional)</label>
+                            <input
+                                type="tel"
+                                value={shopForm.phone}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, phone: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="Enter phone number"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-sm text-slate-600 font-medium">Email (Optional)</label>
+                            <input
+                                type="email"
+                                value={shopForm.email}
+                                onChange={(e) => setShopForm((prev) => ({ ...prev, email: e.target.value }))}
+                                className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                placeholder="Enter email"
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            className="w-full bg-brand-primary text-white py-3 rounded-xl font-semibold hover:bg-brand-dark transition"
+                        >
+                            Save shop
+                        </button>
+                    </form>
+                )}
+
+                {activeTab === 'manageShops' && (
+                    <div>
+                        <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-lg font-semibold text-slate-800">All Shops</h3>
+                            <button
+                                className="text-sm text-brand-dark hover:text-brand-primary"
+                                type="button"
+                                onClick={loadShops}
+                            >
+                                Refresh
+                            </button>
+                        </div>
+                        <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                            {shops.map((shop) => (
+                                <div key={shop._id} className="border border-slate-100 rounded-xl p-4 hover:border-brand-primary transition">
+                                    {editingShop === shop._id ? (
+                                        <form onSubmit={handleUpdateShop} className="space-y-3">
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Shop Name</label>
+                                                <input
+                                                    type="text"
+                                                    value={editShopForm.name}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, name: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">City</label>
+                                                <input
+                                                    type="text"
+                                                    value={editShopForm.city}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, city: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Website URL</label>
+                                                <input
+                                                    type="url"
+                                                    value={editShopForm.websiteUrl}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, websiteUrl: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Map URL</label>
+                                                <input
+                                                    type="url"
+                                                    value={editShopForm.mapUrl}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, mapUrl: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Specialties (Comma separated)</label>
+                                                <input
+                                                    type="text"
+                                                    value={editShopForm.specialties}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, specialties: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Description</label>
+                                                <textarea
+                                                    value={editShopForm.description}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, description: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                    rows="2"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Phone</label>
+                                                <input
+                                                    type="tel"
+                                                    value={editShopForm.phone}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, phone: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="text-sm text-slate-600 font-medium">Email</label>
+                                                <input
+                                                    type="email"
+                                                    value={editShopForm.email}
+                                                    onChange={(e) => setEditShopForm((prev) => ({ ...prev, email: e.target.value }))}
+                                                    className="w-full mt-1 rounded-xl border border-slate-200 px-3 py-2 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 outline-none transition"
+                                                />
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <button
+                                                    type="submit"
+                                                    className="px-4 py-2 rounded-full bg-brand-primary text-white text-sm font-semibold hover:bg-brand-dark transition"
+                                                >
+                                                    Save
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setEditingShop(null);
+                                                        setEditShopForm({
+                                                            name: '',
+                                                            city: '',
+                                                            websiteUrl: '',
+                                                            mapUrl: '',
+                                                            specialties: '',
+                                                            description: '',
+                                                            phone: '',
+                                                            email: ''
+                                                        });
+                                                    }}
+                                                    className="px-4 py-2 rounded-full border border-slate-300 text-slate-700 text-sm font-semibold hover:bg-slate-50 transition"
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </form>
+                                    ) : (
+                                        <div className="flex items-start justify-between">
+                                            <div className="flex-1">
+                                                <p className="font-semibold text-slate-800">{shop.name}</p>
+                                                <p className="text-sm text-slate-500 mt-1">{shop.city}</p>
+                                                <a
+                                                    href={shop.websiteUrl}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className="text-xs text-brand-primary hover:underline mt-1 block"
+                                                >
+                                                    {shop.websiteUrl}
+                                                </a>
+                                                {shop.mapUrl && (
+                                                    <a
+                                                        href={shop.mapUrl}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="text-xs text-slate-500 hover:text-brand-primary mt-1 block"
+                                                    >
+                                                        View on map
+                                                    </a>
+                                                )}
+                                                {shop.specialties && shop.specialties.length > 0 && (
+                                                    <div className="flex flex-wrap gap-1 mt-2">
+                                                        {Array.isArray(shop.specialties) ? (
+                                                            shop.specialties.map((specialty, idx) => (
+                                                                <span
+                                                                    key={idx}
+                                                                    className="px-2 py-0.5 text-xs rounded-full bg-green-50 text-green-700"
+                                                                >
+                                                                    {specialty}
+                                                                </span>
+                                                            ))
+                                                        ) : (
+                                                            <span className="px-2 py-0.5 text-xs rounded-full bg-green-50 text-green-700">
+                                                                {shop.specialties}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                )}
+                                                {shop.description && (
+                                                    <p className="text-xs text-slate-500 mt-2">{shop.description}</p>
+                                                )}
+                                                {(shop.phone || shop.email) && (
+                                                    <div className="text-xs text-slate-400 mt-2">
+                                                        {shop.phone && <p>Phone: {shop.phone}</p>}
+                                                        {shop.email && <p>Email: {shop.email}</p>}
+                                                    </div>
+                                                )}
+                                                <p className="text-xs text-slate-400 mt-2">
+                                                    Created: {new Date(shop.createdAt).toLocaleDateString()}
+                                                </p>
+                                            </div>
+                                            <div className="flex gap-2 ml-4">
+                                                <button
+                                                    onClick={() => handleEditShop(shop)}
+                                                    className="px-4 py-2 rounded-full border border-brand-primary text-brand-primary text-sm font-semibold hover:bg-brand-primary hover:text-white transition"
+                                                >
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDeleteShop(shop._id)}
+                                                    className="px-4 py-2 rounded-full bg-red-500 text-white text-sm font-semibold hover:bg-red-600 transition"
+                                                >
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                            {!shops.length && (
+                                <p className="text-slate-500 text-sm text-center py-8">No shops found</p>
                             )}
                         </div>
                     </div>

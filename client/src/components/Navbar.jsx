@@ -34,19 +34,22 @@ const Navbar = () => {
         { to: '/dashboard', label: 'Dashboard' },
         { to: '/foods', label: 'Foods' },
         { to: '/meals', label: 'Meals' },
+        { to: '/meal-plans', label: 'Meal Plans' },
         { to: '/advisors', label: 'Advisors' },
+        { to: '/shops', label: 'Shops' },
+        { to: '/profile', label: 'Profile' },
         { to: '/chat', label: 'Chat' }
       ];
 
   return (
-    <header className="bg-white border-b border-slate-100 sticky top-0 z-10">
+    <header className="bg-white border-b border-slate-100 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="h-10 w-10 rounded-2xl bg-brand-primary text-white flex items-center justify-center font-bold">
             NA
           </div>
           <div>
-            <p className="text-slate-900 font-semibold">Nutrition Advisor</p>
+            <p className="text-slate-900 font-semibold">NutriLanka</p>
             <p className="text-xs text-slate-500">Sri Lankan Diets</p>
           </div>
         </div>

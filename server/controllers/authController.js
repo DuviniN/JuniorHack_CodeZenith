@@ -61,3 +61,31 @@ export const updateOnboarding = async (req, res) => {
   res.json({ user });
 };
 
+export const updateProfile = async (req, res) => {
+  try {
+    const { name, email, onboarding, preferences } = req.body;
+    const updates = {};
+
+    if (name) updates.name = name;
+    if (email) {
+      const existing = await User.findOne({ email });
+      if (existing && existing._id.toString() !== req.user._id.toString()) {
+        return res.status(400).json({ message: 'Email already in use' });
+      }
+      updates.email = email;
+    }
+    if (onboarding) updates.onboarding = onboarding;
+    if (preferences) updates.preferences = preferences;
+
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      updates,
+      { new: true }
+    ).select('-password');
+
+    res.json({ user: safeUser(user) });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+

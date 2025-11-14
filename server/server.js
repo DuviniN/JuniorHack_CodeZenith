@@ -7,6 +7,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import foodRoutes from './routes/foodRoutes.js';
 import mealRoutes from './routes/mealRoutes.js';
+import mealPlanRoutes from './routes/mealPlanRoutes.js';
 import advisorRoutes from './routes/advisorRoutes.js';
 import analyticsRoutes from './routes/analyticsRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
@@ -30,12 +31,13 @@ app.use(express.json({ limit: '1mb' }));
 app.use(morgan('dev'));
 
 app.get('/api/health', (_, res) => {
-  res.json({ status: 'ok', message: 'Nutrition Advisor API running' });
+  res.json({ status: 'ok', message: 'NutriLanka API running' });
 });
 
 app.use('/api/auth', authRoutes);
 app.use('/api/foods', foodRoutes);
 app.use('/api/meals', mealRoutes);
+app.use('/api/meal-plans', mealPlanRoutes);
 app.use('/api/advisors', advisorRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/admin', adminRoutes);
@@ -56,7 +58,7 @@ const startServer = async () => {
   try {
     await connectDB();
     app.listen(PORT, () => {
-      console.log(`Nutrition Advisor API ready on port ${PORT}`);
+      console.log(`NutriLanka API ready on port ${PORT}`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);

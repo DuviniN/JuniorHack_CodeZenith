@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import {
   fetchAdvisors,
   fetchAppointments,
-  fetchShops,
   bookAppointment
 } from '../slices/advisorSlice.js';
 import { getAdvisorImage } from '../utils/imageHelpers.js';
@@ -12,12 +11,11 @@ import { getAdvisorImage } from '../utils/imageHelpers.js';
 const AdvisorDirectory = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { list, shops, appointments } = useSelector((state) => state.advisors);
+  const { list, appointments } = useSelector((state) => state.advisors);
   const [form, setForm] = useState({ advisorId: '', scheduledFor: '', notes: '' });
 
   useEffect(() => {
     dispatch(fetchAdvisors());
-    dispatch(fetchShops());
     dispatch(fetchAppointments());
   }, [dispatch]);
 
@@ -187,36 +185,6 @@ const AdvisorDirectory = () => {
               <p className="text-slate-500 text-sm">No appointments booked yet.</p>
             )}
           </div>
-        </div>
-      </section>
-
-      <section className="card">
-        <h3 className="text-lg font-semibold text-slate-800 mb-3">Healthy food shops</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-          {shops.map((shop) => (
-            <a
-              key={shop.name}
-              className="border border-slate-100 rounded-2xl p-0 hover:border-brand-primary transition overflow-hidden"
-              href={shop.mapUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className="h-36 w-full overflow-hidden">
-                <img
-                  src={`https://source.unsplash.com/featured/500x300/?${encodeURIComponent(
-                    `${shop.city} organic market`
-                  )}`}
-                  alt={shop.name}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="p-3">
-                <p className="font-semibold text-slate-800">{shop.name}</p>
-                <p className="text-slate-500">{shop.city}</p>
-                <p className="text-slate-600 text-xs mt-2">{shop.specialties?.join(', ')}</p>
-              </div>
-            </a>
-          ))}
         </div>
       </section>
     </div>

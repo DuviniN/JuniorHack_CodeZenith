@@ -2,15 +2,19 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Onboarding from './pages/Onboarding.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import Profile from './pages/Profile.jsx';
 import Foods from './pages/Foods.jsx';
 import FoodDetail from './pages/FoodDetail.jsx';
 import Meals from './pages/Meals.jsx';
+import MealPlans from './pages/MealPlans.jsx';
 import AdvisorDirectory from './pages/AdvisorDirectory.jsx';
+import Shops from './pages/Shops.jsx';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 import BookingDetails from './pages/BookingDetails.jsx';
 import Chat from './pages/Chat.jsx';
@@ -60,6 +64,14 @@ function App() {
             }
           />
           <Route
+            path="/profile"
+            element={
+              <ProtectedRoute userOnly>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/foods"
             element={
               <ProtectedRoute userOnly>
@@ -84,6 +96,14 @@ function App() {
             }
           />
           <Route
+            path="/meal-plans"
+            element={
+              <ProtectedRoute userOnly>
+                <MealPlans />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/chat"
             element={
               <ProtectedRoute userOnly>
@@ -96,6 +116,14 @@ function App() {
             element={
               <ProtectedRoute userOnly>
                 <AdvisorDirectory />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/shops"
+            element={
+              <ProtectedRoute userOnly>
+                <Shops />
               </ProtectedRoute>
             }
           />
@@ -118,6 +146,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }

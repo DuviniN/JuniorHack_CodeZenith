@@ -1,5 +1,6 @@
 import Advisor from '../models/Advisor.js';
 import Appointment from '../models/Appointment.js';
+import Shop from '../models/Shop.js';
 
 const fallbackAdvisors = [
   {
@@ -90,27 +91,11 @@ export const getAppointment = async (req, res) => {
 };
 
 export const listHealthyShops = async (_req, res) => {
-  res.json({
-    shops: [
-      {
-        name: 'Good Market Colombo',
-        city: 'Colombo 07',
-        mapUrl: 'https://maps.app.goo.gl/qXtJGe8k4V6oA2jD9',
-        specialties: ['organic veg', 'kombucha', 'gluten free string hoppers']
-      },
-      {
-        name: 'Haritha Hela Foods',
-        city: 'Kandy',
-        mapUrl: 'https://maps.app.goo.gl/q4EoH1o9kG7fi1Gq6',
-        specialties: ['traditional rice', 'kithul treacle', 'herbal powders']
-      },
-      {
-        name: 'Saviru Superfoods',
-        city: 'Galle',
-        mapUrl: 'https://maps.app.goo.gl/c2KmZVbNUsngmKzF9',
-        specialties: ['moringa snacks', 'jack chips', 'ready-to-eat kola kenda']
-      }
-    ]
-  });
+  try {
+    const shops = await Shop.find().sort({ createdAt: -1 });
+    res.json({ shops });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
