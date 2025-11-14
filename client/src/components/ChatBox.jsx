@@ -129,33 +129,24 @@ const AssistantMessage = ({ text }) => {
   const parsed = parseMealPlanResponse(text);
 
   if (!parsed) {
-    return <div className="text-sm whitespace-pre-wrap">{text}</div>;
+    return <UnstructuredMessage text={text} />;
   }
-
-  const focusPills = parsed.targetFocus
-    ? parsed.targetFocus
-        .split(/[,•]+/)
-        .map((item) => item.replace(/[.]/g, '').trim())
-        .filter(Boolean)
-    : [];
 
   return (
     <div className="space-y-4 text-sm text-slate-800">
-      {parsed.intro && (
-        <p className="text-base font-medium text-slate-900 leading-relaxed">{parsed.intro}</p>
-      )}
+      {parsed.intro && <p className="text-base font-medium leading-relaxed text-slate-900">{parsed.intro}</p>}
 
-      {(parsed.title || focusPills.length) && (
+      {(parsed.title || parsed.keyPrinciples?.length) && (
         <div className="rounded-2xl border border-emerald-100 bg-emerald-50/80 p-4">
           {parsed.title && <h3 className="text-lg font-semibold text-slate-900">{parsed.title}</h3>}
-          {focusPills.length > 0 && (
-            <div className="mt-2 flex flex-wrap gap-2">
-              {focusPills.map((pill, idx) => (
+          {parsed.keyPrinciples?.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {parsed.keyPrinciples.map((principle, idx) => (
                 <span
                   key={idx}
                   className="inline-flex items-center rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-emerald-700 shadow-sm"
                 >
-                  {pill}
+                  {principle}
                 </span>
               ))}
             </div>
@@ -163,18 +154,17 @@ const AssistantMessage = ({ text }) => {
         </div>
       )}
 
-      {parsed.meals?.length > 0 && (
+      {parsed.mealSections?.length > 0 && (
         <div className="space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">Daily meal roadmap</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">Recommended meals</p>
           <div className="grid gap-4 md:grid-cols-2">
-            {parsed.meals.map((meal, idx) => (
+            {parsed.mealSections.map((meal, idx) => (
               <div key={idx} className="rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{`Meal ${idx + 1}`}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{meal.subtitle || `Meal ${idx + 1}`}</p>
                     <h4 className="text-base font-semibold text-slate-900">{meal.title}</h4>
                   </div>
-                  {meal.time && <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-slate-600">{meal.time}</span>}
                 </div>
                 {meal.items?.length > 0 && (
                   <ul className="mt-3 space-y-2 text-sm text-slate-700">
@@ -192,9 +182,22 @@ const AssistantMessage = ({ text }) => {
         </div>
       )}
 
+      {parsed.snacks?.length > 0 && (
+        <div className="rounded-2xl border border-slate-100 bg-white p-4">
+          <h4 className="text-base font-semibold text-slate-900">Snack ideas to hit macros</h4>
+          <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-slate-700 marker:text-emerald-500">
+            {parsed.snacks.map((snack, idx) => (
+              <li key={idx} className="leading-relaxed">
+                {snack}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {parsed.advice?.length > 0 && (
         <div className="rounded-2xl border border-slate-200 bg-white p-4">
-          <h4 className="text-base font-semibold text-slate-900">Quick reminders</h4>
+          <h4 className="text-base font-semibold text-slate-900">Short advice</h4>
           <ol className="mt-2 space-y-2 pl-5 text-sm text-slate-700 list-decimal marker:text-emerald-500">
             {parsed.advice.map((tip, idx) => (
               <li key={idx} className="leading-relaxed">
@@ -204,6 +207,23 @@ const AssistantMessage = ({ text }) => {
           </ol>
         </div>
       )}
+    </div>
+  );
+};
+
+const UnstructuredMessage = ({ text }) => {
+  const clean = text
+    .replace(/\*\*/g, '')
+    .replace(/---+/g, '')
+    .trim();
+
+  return (
+    <div className="space-y-2 text-sm text-slate-800">
+      {clean.split(/\n\s*\n/).map((paragraph, idx) => (
+        <p key={idx} className="leading-relaxed whitespace-pre-line">
+          {paragraph}
+        </p>
+      ))}
     </div>
   );
 };

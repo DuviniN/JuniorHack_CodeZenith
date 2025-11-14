@@ -1,71 +1,136 @@
+const CLEAN_HEADING_REGEX = /^\*\*(.+?)\*\*:?$/;
+
 export function parseMealPlanResponse(rawText) {
   if (!rawText || typeof rawText !== 'string') return null;
 
-  const text = rawText.trim();
-  if (!text.includes('Meal Plan')) return null;
+  const text = rawText.replace(/\r/g, '').trim();
+  const hasPlanKeywords = /(meal plan|recommended meals|key principles|snacks)/i.test(text);
+  if (!hasPlanKeywords) return null;
 
-  const intro = text.split('---')[0]?.trim() || '';
+  const result = {
+    intro: '',
+    title: '',
+    keyPrinciples: [],
+    mealSections: [],
+    snacks: [],
+    advice: []
+  };
 
-  const titleMatch = text.match(/###\s*\*\*(.+?)\*\*/);
-  const title = titleMatch ? titleMatch[1].trim() : '';
+  const lines = text.split('\n').map((line) => line.trim());
+  let section = 'intro';
+  let currentMealSection = null;
 
-  const focusMatch = text.match(/\*\*Target Focus:\*\*\s*(.+)/);
-  const targetFocus = focusMatch ? focusMatch[1].trim() : '';
+  lines.forEach((line) => {
+    if (!line) return;
+    if (/^---+$/.test(line)) return;
 
-  const adviceHeadingIndex = text.indexOf('### **Short Advice');
-  const adviceBlock = adviceHeadingIndex >= 0 ? text.substring(adviceHeadingIndex) : '';
-  const adviceLines = adviceBlock
-    .split('\n')
-    .map((line) => line.trim())
-    .filter((line) => /^\d+\./.test(line))
-    .map((line) => line.replace(/^\d+\.\s*/, '').replace(/\*\*/g, ''));
+    const headingMatch = line.match(CLEAN_HEADING_REGEX);
+    if (headingMatch) {
+      const heading = headingMatch[1].trim();
+      const lowerHeading = heading.toLowerCase();
 
-  const mealRegex = /\*\*(\d+\.\s*[^*]+)\*\*/g;
-  const mealMatches = [];
-  let match;
-  while ((match = mealRegex.exec(text)) !== null) {
-    mealMatches.push({
-      heading: match[1].trim(),
-      start: match.index + match[0].length
-    });
-  }
+      if (!result.title && /meal plan/i.test(heading)) {
+        result.title = heading.replace(/\*\*/g, '').trim();
+      }
 
-  if (!mealMatches.length) {
+      if (lowerHeading.includes('key principles')) {
+        section = 'principles';
+        return;
+      }
+      if (lowerHeading.includes('recommended meals')) {
+        section = 'meals';
+        currentMealSection = null;
+        return;
+      }
+      if (lowerHeading.includes('snack')) {
+        section = 'snacks';
+        currentMealSection = null;
+        return;
+      }
+      if (lowerHeading.includes('short advice')) {
+        section = 'advice';
+        currentMealSection = null;
+        return;
+      }
+
+      if (section === 'meals') {
+        const timeMatch = heading.match(/\((.*?)\)/);
+        currentMealSection = {
+          title: heading.replace(/\(.*?\)/, '').trim(),
+          subtitle: timeMatch ? timeMatch[1] : '',
+          items: []
+        };
+        result.mealSections.push(currentMealSection);
+        return;
+      }
+
+      return;
+    }
+
+    switch (section) {
+      case 'principles': {
+        const principle = stripMarkdownBullet(line);
+        if (principle) result.keyPrinciples.push(principle);
+        break;
+      }
+      case 'snacks': {
+        const snack = stripMarkdownBullet(line, true);
+        if (snack) result.snacks.push(snack);
+        break;
+      }
+      case 'advice': {
+        const advice = line.replace(/^\d+\.\s*/, '').replace(/\*\*/g, '').trim();
+        if (advice) result.advice.push(advice);
+        break;
+      }
+      case 'meals': {
+        const cleaned = line.replace(/^\d+\.\s*/, '').trim();
+        if (!cleaned) break;
+        const parsedItem = parseMealItem(cleaned);
+        if (!currentMealSection) {
+          currentMealSection = { title: 'Meal', subtitle: '', items: [] };
+          result.mealSections.push(currentMealSection);
+        }
+        currentMealSection.items.push(parsedItem);
+        break;
+      }
+      default: {
+        result.intro = result.intro ? `${result.intro}\n${line.replace(/\*\*/g, '')}` : line.replace(/\*\*/g, '');
+      }
+    }
+  });
+
+  const hasStructuredContent =
+    result.keyPrinciples.length || result.mealSections.length || result.snacks.length || result.advice.length;
+
+  if (!hasStructuredContent) {
     return null;
   }
 
-  const meals = mealMatches.map((entry, idx) => {
-    const end = mealMatches[idx + 1]?.start ?? (adviceHeadingIndex >= 0 ? adviceHeadingIndex : text.length);
-    const block = text.substring(entry.start, end).trim();
-    const items = block
-      .split('\n')
-      .map((line) => line.trim())
-      .filter((line) => line.startsWith('*'))
-      .map((line) => {
-        const cleaned = line.replace(/^\*+\s*/, '').trim();
-        const withoutBold = cleaned.replace(/\*\*/g, '').trim();
-        const [label, ...rest] = withoutBold.split(':');
-        return {
-          label: label.trim(),
-          description: rest.join(':').trim()
-        };
-      })
-      .filter((item) => item.label);
+  return result;
+}
 
-    const cleanedHeading = entry.heading.replace(/^\d+\.\s*/, '').trim();
-    const timeMatch = cleanedHeading.match(/\((.*?)\)/);
+function stripMarkdownBullet(line, allowNumbered = false) {
+  if (!line) return '';
+  let cleaned = line;
+  cleaned = cleaned.replace(/^[-*•]\s*/, '');
+  if (allowNumbered) cleaned = cleaned.replace(/^\d+\.\s*/, '');
+  return cleaned.replace(/\*\*/g, '').trim();
+}
+
+function parseMealItem(line) {
+  const bulletStripped = line.replace(/^[-*•]\s*/, '');
+  const boldMatch = bulletStripped.match(/\*\*(.+?)\*\*\s*:?(.*)/);
+  if (boldMatch) {
     return {
-      title: cleanedHeading.replace(/\(.*?\)/, '').trim(),
-      time: timeMatch ? timeMatch[1] : '',
-      items
+      label: boldMatch[1].trim(),
+      description: boldMatch[2]?.trim() || ''
     };
-  });
+  }
 
+  const [label, ...rest] = bulletStripped.replace(/\*\*/g, '').split(':');
   return {
-    intro,
-    title,
-    targetFocus,
-    meals,
-    advice: adviceLines
+    label: (label && label.trim()) || bulletStripped.replace(/\*\*/g, ''),
+    description: rest.join(':').trim()
   };
 }
