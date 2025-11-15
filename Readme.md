@@ -83,5 +83,5 @@ CLIENT_URL=http://localhost:5173
 6. **Healthy shops** – Scroll to shop list and open map links for Sri Lankan healthy grocers.
 7. **Admin approvals** – Login as admin (first user), visit `/admin`, approve foods, add advisors.
 
-Enjoy shipping NutriLanka!  
+Enjoy shipping NutriLanka  
 
