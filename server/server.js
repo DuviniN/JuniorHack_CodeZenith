@@ -19,7 +19,7 @@ const app = express();
 
 const allowedOrigins = process.env.CLIENT_URL
   ? process.env.CLIENT_URL.split(',').map((origin) => origin.trim())
-  : ['http://localhost:5173','https://juniorhack_codezenith.railway.app'];
+  : ['http://localhost:5173','https://nutritionadvisor.netlify.app'];
 
 app.use(
   cors({
