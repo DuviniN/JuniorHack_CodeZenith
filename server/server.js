@@ -23,10 +23,23 @@ const allowedOrigins = process.env.CLIENT_URL
 
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, postman)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS: " + origin));
+      }
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 200
   })
 );
+
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan('dev'));
 
