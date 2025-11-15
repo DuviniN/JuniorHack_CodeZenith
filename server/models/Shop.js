@@ -7,6 +7,7 @@ const shopSchema = new mongoose.Schema(
     websiteUrl: { type: String, required: true },
     mapUrl: String,
     specialties: [String],
+    image: String,
     description: String,
     phone: String,
     email: String

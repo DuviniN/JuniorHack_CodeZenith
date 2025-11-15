@@ -53,16 +53,7 @@ const AdvisorDirectory = () => {
               </span>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
-            {['nutrition', 'wellness sri lanka', 'ayurveda meals', 'healthy cooking'].map((tag) => (
-              <img
-                key={tag}
-                src={`https://source.unsplash.com/featured/400x400/?${encodeURIComponent(tag)}`}
-                alt="Advisor mood"
-                className="rounded-2xl object-cover h-32 w-full md:h-40 md:w-40 shadow-lg shadow-black/20"
-              />
-            ))}
-          </div>
+          {/* Decorative advisor mood images removed to simplify the hero */}
         </div>
       </section>
 
