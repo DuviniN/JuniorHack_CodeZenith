@@ -33,16 +33,7 @@ const Shops = () => {
               </span>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
-            {['organic market', 'healthy food store', 'traditional ingredients', 'superfoods'].map((tag) => (
-              <img
-                key={tag}
-                src={`https://source.unsplash.com/featured/400x400/?${encodeURIComponent(tag)}`}
-                alt="Shop mood"
-                className="rounded-2xl object-cover h-32 w-full md:h-40 md:w-40 shadow-lg shadow-black/20"
-              />
-            ))}
-          </div>
+          {/* Decorative mood grid removed to keep hero clean */}
         </div>
       </section>
 
@@ -51,17 +42,21 @@ const Shops = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {shops.map((shop) => (
             <a
-              key={shop.name}
+              key={shop._id}
               href={shop.websiteUrl || shop.mapUrl}
               target="_blank"
               rel="noreferrer"
               className="border border-slate-100 rounded-2xl p-0 hover:border-brand-primary hover:shadow-lg transition-all overflow-hidden group"
             >
-              <div className="h-48 w-full overflow-hidden">
+              <div className="h-48 w-full overflow-hidden bg-slate-100">
                 <img
-                  src={`https://source.unsplash.com/featured/500x300/?${encodeURIComponent(
-                    `${shop.city} organic market`
-                  )}`}
+                  src={
+                    shop.image && shop.image.length
+                      ? shop.image
+                      : `https://source.unsplash.com/featured/500x300/?${encodeURIComponent(
+                          `${shop.city} organic market`
+                        )}`
+                  }
                   alt={shop.name}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
