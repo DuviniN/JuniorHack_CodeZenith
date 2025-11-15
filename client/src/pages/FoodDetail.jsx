@@ -62,6 +62,12 @@ const FoodDetail = () => {
                 : 'High Sugar-Fat'}
             </span>
           </div>
+          <div className="bg-slate-50 rounded-xl p-4 mb-4 border border-slate-200">
+            <p className="text-sm text-slate-600 text-center">
+              Nutritional values are for <span className="font-semibold text-slate-900">{selected.portionGrams} g</span> 
+              {selected.portionGrams >= 1000 && ` (${(selected.portionGrams / 1000).toFixed(2)} kg)`}
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { label: 'Calories', value: `${selected.calories} kcal` },
