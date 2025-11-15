@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import Landing from './pages/Landing.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Onboarding from './pages/Onboarding.jsx';
@@ -22,6 +23,7 @@ import { fetchProfile } from './slices/authSlice.js';
 
 function App() {
   const dispatch = useDispatch();
+  const location = useLocation();
   const { token, user } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -30,10 +32,13 @@ function App() {
     }
   }, [token, user, dispatch]);
 
+  // Check if current route is landing page
+  const isLandingPage = location.pathname === '/';
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="max-w-6xl mx-auto px-4 py-6">
+      <main className={isLandingPage ? '' : 'max-w-6xl mx-auto px-4 py-6'}>
         <Routes>
           <Route
             path="/"
@@ -41,7 +46,7 @@ function App() {
               token && user ? (
                 <Navigate to={user.role === 'admin' ? '/admin' : '/dashboard'} replace />
               ) : (
-                <Navigate to="/login" replace />
+                <Landing />
               )
             }
           />
